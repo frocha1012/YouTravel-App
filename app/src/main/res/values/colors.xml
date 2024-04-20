@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="main">#BEACA2</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="purple">#800080</color>
+    <color name="teal">#008080</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="orange">#FFA500</color>
+    <color name="lilac">#C8A2C8</color>
+    <!-- Additional detailed color names -->
+    <color name="tomato_red">#FF6347</color>
+    <color name="soft_pink">#FFB6C1</color>
+    <color name="light_sky_blue">#87CEFA</color>
+    <color name="lavender">#E6E6FA</color>
+    <color name="dusty_rose">#D2B4BC</color>
+    <color name="mint_green">#98FF98</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="sea_green">#2E8B57</color>
+    <color name="violet">#EE82EE</color>
+    <color name="sand">#F4A460</color>
+    <color name="navy_blue">#000080</color>
+    <color name="plum">#DDA0DD</color>
+    <color name="deep_magenta">#8B008B</color>
+    <color name="grass_green">#7CFC00</color>
+    <color name="lime_green">#32CD32</color>
+    <color name="aqua_blue">#00FFFF</color>
+    <color name="beige">#F5F5DC</color>
+    <color name="rosewood">#65000B</color>
+    <color name="gold">#FFD700</color>
+    <color name="teal_green">#008080</color>
+    <color name="lime_shock">#CCFF00</color>
+    <color name="bright_green">#66FF00</color>
+    <color name="dark_olive">#556B2F</color>
+    <color name="ice_blue">#AFEEEE</color>
+    <color name="sun_yellow">#FFD700</color>
+    <color name="sky_blue">#87CEEB</color>
+    <color name="salmon">#FA8072</color>
+    <color name="khaki">#F0E68C</color>
+    <color name="silver_cloud">#C0C0C0</color>
+    <color name="neon_green">#39FF14</color>
+    <color name="fresh_green">#69F0AE</color>
+    <color name="deep_violet">#9400D3</color>
+    <color name="jungle_green">#29AB87</color>
+    <color name="copper_brown">#CB6D51</color>
+    <color name="ocean_blue">#4F42B5</color>
+    <color name="forest_green">#228B22</color>
+    <color name="tangerine">#F28500</color>
+    <color name="cool_aqua">#00CED1</color>
+    <color name="seafoam">#93E9BE</color>
+    <color name="indigo">#4B0082</color>
+    <color name="cornflower_blue">#6495ED</color>
+    <color name="persimmon">#EC5800</color>
+    <color name="azure">#F0FFFF</color>
+    <color name="spring_green">#00FF7F</color>
+    <color name="caramel">#C68E17</color>
+    <color name="midnight_blue">#191970</color>
+    <color name="emerald_green">#50C878</color>
 </resources>
