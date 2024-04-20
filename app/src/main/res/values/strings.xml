@@ -6,7 +6,13 @@
     <!-- TODO: RUI -->
 
     <string name="front_descriptionApp">Organize your journeys, capture unforgettable moments, and create a stunning travel portfolio all in one place.</string>
-    <string name="get_started">Vamos começar</string>
+    <string name="get_started">Get Started!</string>
+    <string name="already_have_account">Already have an account?</string>
+
+    <string name="description_plane">Learn more about our flight options and explore new destinations.</string>
+    <string name="description_camera">Discover amazing photo opportunities and capture unforgettable moments.</string>
+    <string name="description_group">Connect with other travelers and make unforgettable memories together.</string>
+
 
 
 
