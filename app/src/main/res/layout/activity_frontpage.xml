@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="100dp"/>
 
     <TextView
         android:layout_width="0dp"
@@ -24,11 +24,11 @@
         android:text="@string/front_descriptionApp"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="80dp"
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="@color/main"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -38,16 +38,69 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/get_started"
-        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/main70"
         android:textSize="14sp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         app:layout_constraintTop_toBottomOf="@id/textViewDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <Button
+        android:id="@+id/alreadyHaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/already_have_account"
+        android:background="@android:color/transparent"
+        android:textAlignment="center"
+        android:textColor="@color/main"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintTop_toBottomOf="@id/getStartedButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/alreadyHaveButton"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
 
+        <!-- Plane Icon -->
+        <ImageView
+            android:id="@+id/planeIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_airplanemode_active_24"
+            android:contentDescription="@string/description_plane"
+            app:tint="@color/main70"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Camera Icon -->
+        <ImageView
+            android:id="@+id/cameraIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:contentDescription="@string/description_camera"
+            app:tint="@color/main70"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"/>
+
+        <!-- Group of People Icon -->
+        <ImageView
+            android:id="@+id/groupIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_people_24"
+            android:contentDescription="@string/description_group"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:tint="@color/main70" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
