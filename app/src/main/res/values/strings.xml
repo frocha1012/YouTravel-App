@@ -1,8 +1,29 @@
 <resources>
     <string name="app_name">YouTravel</string>
     <string name="title_activity_login">Login</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+
+
+
+    <!-- TODO: RUI -->
+    <string name="front_descriptionApp">Organize your journeys, capture unforgettable moments, and create a stunning travel portfolio all in one place. Discover new destinations, attach places to your itineraries, and keep your adventures alive with photos. Start your journey with Wanderlog today and explore the world your way!</string>
+
+    <!-- TODO: RUI -->
+
+
+    <!-- TODO: &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+
+
+    <!-- TODO: FERNANDO-->
+
     <string name="loginwelcome">Welcome back!</string>
     <string name="loginsignin">Let\'s sign you in</string>
-    <string name="front_descriptionApp">Organize your journeys, capture unforgettable moments, and create a stunning travel portfolio all in one place. Discover new destinations, attach places to your itineraries, and keep your adventures alive with photos. Start your journey with Wanderlog today and explore the world your way!</string>
+    <string name="typePassword">Type your password</string>
+    <string name="typeEmail">Type your email</string>
+    <string name="Email">Email</string>
+    <string name="forgetPassword">Forgot your password?</string>
+
+    <!-- TODO: FERNANDO-->
+
 </resources>
