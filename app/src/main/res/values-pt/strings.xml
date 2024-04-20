@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">YouTravel</string>
+    <string name="title_activity_login">Login</string>
+    <string name="loginwelcome">Bem-vindo de volta</string>
+    <string name="loginsignin">Vamos iniciar a sua sessão.</string>
+    <string name="front_descriptionApp">Organize as suas viagens, capture momentos inesquecíveis e crie um portfólio de viagem deslumbrante, tudo num único lugar. Descubra novos destinos, adicione lugares aos seus itinerários e mantenha as suas aventuras vivas com fotos. Inicie a sua jornada com o Wanderlog hoje e explore o mundo à sua maneira!</string>
 </resources>

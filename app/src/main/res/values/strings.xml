@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">YouTravel</string>
-    <string name="title_activity_login">login</string>
+    <string name="title_activity_login">Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="loginwelcome">Welcome back!</string>
     <string name="loginsignin">Let\'s sign you in</string>
+    <string name="front_descriptionApp">Organize your journeys, capture unforgettable moments, and create a stunning travel portfolio all in one place. Discover new destinations, attach places to your itineraries, and keep your adventures alive with photos. Start your journey with Wanderlog today and explore the world your way!</string>
 </resources>
