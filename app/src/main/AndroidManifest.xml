@@ -19,13 +19,13 @@
             android:name=".introsliders"
             android:exported="false" />
         <activity
-            android:name=".frontpage"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".frontpage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
