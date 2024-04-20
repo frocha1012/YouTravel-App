@@ -6,4 +6,9 @@
     <string name="loginsignin">Vamos iniciar a sua sessão.</string>
     <string name="front_descriptionApp">Organize as suas viagens, capture momentos inesquecíveis e crie um portfólio de viagem deslumbrante, tudo num único lugar!</string>
     <string name="get_started">Vamos começar!</string>
+    <string name="typePassword">Palavra-passe</string>
+    <string name="typeEmail">Email</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="forgetPassword">Esqueceste a password?</string>
 </resources>
