@@ -19,4 +19,5 @@ class frontpage : AppCompatActivity() {
             insets
         }
     }
+
 }
