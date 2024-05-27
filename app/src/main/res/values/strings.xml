@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">YouTravel</string>
+    <string name="title_activity_login">Login</string>
+
+    <!-- TODO: &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+    <!-- TODO: RUI -->
+
+    <string name="front_descriptionApp">Organize your journeys, capture unforgettable moments, and create a stunning travel portfolio all in one place.</string>
+    <string name="get_started">Get Started!</string>
+    <string name="already_have_account">Already have an account?</string>
+
+    <string name="description_plane">Learn more about our flight options and explore new destinations.</string>
+    <string name="description_camera">Discover amazing photo opportunities and capture unforgettable moments.</string>
+    <string name="description_group">Connect with other travelers and make unforgettable memories together.</string>
+
+
+
+
+
+
+    <!-- TODO: RUI -->
+    <!-- TODO: &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+    <!-- TODO: FERNANDO-->
+
+    <string name="loginwelcome">Welcome back!</string>
+    <string name="loginsignin">Let\'s sign you in</string>
+    <string name="typePassword">Type your password</string>
+    <string name="typeEmail">Type your email</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="forgetPassword">Forgot your password?</string>
+
+    <!-- TODO: FERNANDO-->
+
+
 </resources>
