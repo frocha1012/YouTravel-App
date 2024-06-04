@@ -10,4 +10,7 @@ interface ApiService {
 
     @POST("login")
     fun loginUser(@Body loginRequest: LoginRequest): Call<LoginResponse>
+
+    @POST("signup")
+    fun signupUser()
 }
