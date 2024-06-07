@@ -20,8 +20,17 @@ class Home : AppCompatActivity() {
             insets
         }
         val clearTokenButton = findViewById<Button>(R.id.clearTokenButton)
+        val addTravelButton = findViewById<Button>(R.id.addTravelButton)
         clearTokenButton.setOnClickListener {
             clearToken()
+        }
+
+        clearTokenButton.setOnClickListener {
+            clearToken()
+        }
+
+        addTravelButton.setOnClickListener {
+            navigateToAddTravel()
         }
     }
 
@@ -38,4 +47,11 @@ class Home : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    private fun navigateToAddTravel() {
+        val intent = Intent(this, AddTravel::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }
