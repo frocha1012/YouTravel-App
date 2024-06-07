@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="main0">#BEACA2</color>
     <color name="main15">#15BEACA2</color>
     <color name="main30">#30BEACA2</color>
     <color name="main50">#50BEACA2</color>
     <color name="main70">#70BEACA2</color>
-    <color name="main">#BEACA2</color>
+    
+    <color name="main">#FBFBFA</color>
 
 
     <color name="black">#000000</color>
