@@ -12,8 +12,7 @@ class Preview : AppCompatActivity() {
         setContentView(R.layout.activity_preview)
 
         val imageView: ImageView = findViewById(R.id.image_preview)
-        val imageUri = intent.getStringExtra("image_uri")?.let { Uri.parse(it) }
-
+        val imageUri = intent.getParcelableExtra<Uri>("imageUri")
         imageView.setImageURI(imageUri)
     }
 }

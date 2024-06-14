@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <Button
-        android:id="@+id/button_capture"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Capture"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:text="Camera"
+        android:textSize="24sp"
         android:layout_marginBottom="20dp"/>
 
-    <ImageButton
-        android:id="@+id/button_gallery"
+    <Button
+        android:id="@+id/button_take_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_toRightOf="@id/button_capture"
-        android:layout_marginLeft="10dp"/>
+        android:text="Take Photo"
+        android:onClick="takePicture"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/button_choose_from_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose from Gallery"
+        android:onClick="chooseFromGallery"/>
+</LinearLayout>
