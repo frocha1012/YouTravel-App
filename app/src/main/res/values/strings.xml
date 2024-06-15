@@ -36,6 +36,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="takePhoto">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="newPost">Add a new photo</string>
+    <string name="photoSentence">Choose your favorite picture, and showcase how awesome your photographic skills are!</string>
+    <string name="preview">Preview</string>
 
     <!-- TODO: FERNANDO-->
 

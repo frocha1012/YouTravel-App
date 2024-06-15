@@ -53,7 +53,7 @@
         android:layout_width="368dp"
         android:layout_height="97dp"
         android:layout_marginTop="352dp"
-        android:text="Gestão de Perfil"
+        android:text="Gestão de Viagens"
         android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -63,12 +63,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="354dp"
-        android:layout_height="160dp"
+        android:layout_width="351dp"
+        android:layout_height="124dp"
         android:layout_marginTop="19dp"
-        android:text="A gestão de perfil no YOUTRAVEL oferece uma experiência personalizada e segura para os utilizadores."
+        android:text="Registre, edite e elimine viagens com facilidade."
         android:textColor="@color/white"
-        android:textSize="26dp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -81,6 +81,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        tools:src="@drawable/intro3" />
+        tools:src="@drawable/intro4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
