@@ -1,4 +1,4 @@
-package com.example.youtravel.ui
+package com.example.youtravel.ui.CardItem
 
 import android.os.Bundle
 import android.view.LayoutInflater
