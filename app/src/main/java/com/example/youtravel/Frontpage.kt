@@ -42,7 +42,8 @@ class Frontpage : AppCompatActivity() {
     }
 
     private fun navigateToRegister(){
-        val intent = Intent(this, Register::class.java)
+        val intent = Intent(this, MainActivity::class.java)
+        //val intent = Intent(this, Register::class.java)
         startActivity(intent)
         finish()
     }

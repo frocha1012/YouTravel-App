@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.youtravel.ui.ListFragment"
+        android:name="com.example.youtravel.ui.CardItem.ListFragment"
         android:label="List"
         tools:layout="@layout/fragment_list" />
 

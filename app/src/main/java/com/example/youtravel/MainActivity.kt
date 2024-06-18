@@ -7,8 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.youtravel.ui.CardAdapter
-import com.example.youtravel.ui.CardItem
+import com.example.youtravel.ui.CardItem.CardAdapter
+import com.example.youtravel.ui.CardItem.CardItem
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -29,9 +29,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         cardItemList = mutableListOf()
+        val imagem1 = "http://curiosamente.diariodepernambuco.com.br/wp-content/uploads/2015/11/sol-vermelho1.jpg"
+        val imagem2 = "http://pngimg.com/uploads/pokemon/pokemon_PNG2.png"
+        val imagem3 = "http://pngimg.com/uploads/pokemon/pokemon_PNG3.png"
+        val imagem4 = "http://pngimg.com/uploads/pokemon/pokemon_PNG4.png"
+
         // Add sample data
-        cardItemList.add(CardItem(R.drawable.apple_logo, "Name1", "Title1", "Subtitle1", R.drawable.google_logo))
-        cardItemList.add(CardItem(R.drawable.baseline_airplanemode_active_24, "Name2", "Title2", "Subtitle2", R.drawable.ic_home_black_24dp))
+        cardItemList.add(CardItem(imagem1, "Name1", "Title1", "Subtitle1", imagem1))
+        cardItemList.add(CardItem(imagem3, "Name2", "Title2", "Subtitle2", imagem4))
 
         cardAdapter = CardAdapter(cardItemList)
         recyclerView.adapter = cardAdapter
@@ -51,14 +56,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-
     }
     private fun loadMoreItems() {
         // Simulate network request to load more items
         // Add new items to the list
-        cardItemList.add(CardItem(R.drawable.google_logo, "Name3", "Title3", "Subtitle3", R.drawable.baseline_airplanemode_active_24))
-        cardItemList.add(CardItem(R.drawable.baseline_airplanemode_active_24, "Name4", "Title4", "Subtitle4", R.drawable.google_logo))
+        val imagem = "http://pngimg.com/uploads/pokemon/pokemon_PNG11.png"
+        cardItemList.add(CardItem(imagem, "Name3", "Title3", "Subtitle3", imagem))
+        cardItemList.add(CardItem(imagem, "Name4", "Title4", "Subtitle4", imagem))
         // Notify adapter about data changes
         cardAdapter.notifyDataSetChanged()
     }

@@ -65,7 +65,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

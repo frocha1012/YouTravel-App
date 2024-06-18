@@ -1,4 +1,4 @@
-package com.example.youtravel.ui
+package com.example.youtravel.ui.CardItem
 
 // CardAdapter.kt
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.youtravel.R
 
 class CardAdapter(private val cardItemList: List<CardItem>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
@@ -19,11 +21,22 @@ class CardAdapter(private val cardItemList: List<CardItem>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val currentItem = cardItemList[position]
 
-        holder.imageView1.setImageResource(currentItem.image1ResId)
+        // Use Glide to load the images from URLs
+        Glide.with(holder.itemView.context)
+            .load(currentItem.image1URL)
+            .placeholder(R.drawable.load)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.imageView1)
+
         holder.textViewName.text = currentItem.name
         holder.textViewTitle.text = currentItem.title
         holder.textViewSubtitle.text = currentItem.subtitle
-        holder.imageView2.setImageResource(currentItem.image2ResId)
+
+        Glide.with(holder.itemView.context)
+            .load(currentItem.image2URL)
+            .placeholder(R.drawable.load)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.imageView2)
     }
 
     override fun getItemCount() = cardItemList.size
