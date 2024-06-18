@@ -34,10 +34,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <activity
-            android:name=".ActivityMain"
-            android:exported="false"
-            android:label="@string/title_activity_main" />
-        <activity
             android:name=".Preview"
             android:exported="false" />
         <activity

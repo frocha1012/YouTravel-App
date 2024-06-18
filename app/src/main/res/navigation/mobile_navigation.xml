@@ -22,4 +22,11 @@
         android:name="com.example.youtravel.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.youtravel.ui.ListFragment"
+        android:label="List"
+        tools:layout="@layout/fragment_list" />
+
 </navigation>
