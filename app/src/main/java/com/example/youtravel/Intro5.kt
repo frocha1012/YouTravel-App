@@ -9,24 +9,24 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class Intro4 : AppCompatActivity() {
+class Intro5 : AppCompatActivity() {
     private lateinit var next_page: Button
     private lateinit var previous_page: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro4)
+        setContentView(R.layout.activity_intro5)
 
         next_page = findViewById(R.id.buttonProximo)
         next_page.setOnClickListener {
-            val intent = Intent(this, Intro5::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         previous_page = findViewById(R.id.buttonAnterior)
         previous_page.setOnClickListener {
-            val intent = Intent(this, Intro3::class.java)
+            val intent = Intent(this, Intro4::class.java)
             startActivity(intent)
             finish()
         }
