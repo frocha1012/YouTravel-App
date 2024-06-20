@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtravel.ui.CardItem.CardAdapter
 import com.example.youtravel.ui.CardItem.CardItem
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -72,6 +73,25 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    true
+                }
+                R.id.navigation_add -> {
+                    true
+                }
+                R.id.navigation_place -> {
+                    true
+                }
+                R.id.navigation_personal_area -> {
+                    true
+                }
+                else -> false
+            }
+        }
     }
     
 }
