@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     // Carregar conteudo no startup.
     // Podemos carregar tudo de uma vez, no entanto, se a lista for muito grande talvez
     // queremos fazer o caching no loadcontent_more.
-    fun loadContent_inital(): {
+    fun loadContent_inital() {
         cardItemList = mutableListOf()
 
         val imagem1 = "http://curiosamente.diariodepernambuco.com.br/wp-content/uploads/2015/11/sol-vermelho1.jpg"
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     // Em principio pode ficar vazia a funcao.
     // Sera usada em situacoes em que a lista e muito grande para adicionar mais dados.
-    fun loadContent_more(): {
+    fun loadContent_more() {
         val imagem = "http://pngimg.com/uploads/pokemon/pokemon_PNG11.png"
         cardItemList.add(CardItem(imagem, "Name3", "Title3", "Subtitle3", imagem))
         cardItemList.add(CardItem(imagem, "Name4", "Title4", "Subtitle4", imagem))
@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        recyclerView.adapter = CardAdapter(loadContent_inital())
+        loadContent_inital()
+        recyclerView.adapter = CardAdapter(cardItemList)
 
         // Implement infinite scroll
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
