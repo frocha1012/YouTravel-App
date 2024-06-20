@@ -15,6 +15,30 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cardAdapter: CardAdapter
     private lateinit var cardItemList: MutableList<CardItem>
 
+    // Carregar conteudo no startup.
+    // Podemos carregar tudo de uma vez, no entanto, se a lista for muito grande talvez
+    // queremos fazer o caching no loadcontent_more.
+    fun loadContent_inital() {
+        cardItemList = mutableListOf()
+
+        val imagem1 = "http://curiosamente.diariodepernambuco.com.br/wp-content/uploads/2015/11/sol-vermelho1.jpg"
+        val imagem2 = "http://pngimg.com/uploads/pokemon/pokemon_PNG2.png"
+        val imagem3 = "http://pngimg.com/uploads/pokemon/pokemon_PNG3.png"
+        val imagem4 = "http://pngimg.com/uploads/pokemon/pokemon_PNG4.png"
+
+        // Add sample data
+        cardItemList.add(CardItem(imagem1, "Name1", "Title1", "Subtitle1", imagem1))
+        cardItemList.add(CardItem(imagem3, "Name2", "Title2", "Subtitle2", imagem4))
+    }
+
+    // Em principio pode ficar vazia a funcao.
+    // Sera usada em situacoes em que a lista e muito grande para adicionar mais dados.
+    fun loadContent_more() {
+        val imagem = "http://pngimg.com/uploads/pokemon/pokemon_PNG11.png"
+        cardItemList.add(CardItem(imagem, "Name3", "Title3", "Subtitle3", imagem))
+        cardItemList.add(CardItem(imagem, "Name4", "Title4", "Subtitle4", imagem))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,19 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        cardItemList = mutableListOf()
-        val imagem1 = "http://curiosamente.diariodepernambuco.com.br/wp-content/uploads/2015/11/sol-vermelho1.jpg"
-        val imagem2 = "http://pngimg.com/uploads/pokemon/pokemon_PNG2.png"
-        val imagem3 = "http://pngimg.com/uploads/pokemon/pokemon_PNG3.png"
-        val imagem4 = "http://pngimg.com/uploads/pokemon/pokemon_PNG4.png"
-
-        // Add sample data
-        cardItemList.add(CardItem(imagem1, "Name1", "Title1", "Subtitle1", imagem1))
-        cardItemList.add(CardItem(imagem3, "Name2", "Title2", "Subtitle2", imagem4))
-
-        cardAdapter = CardAdapter(cardItemList)
-        recyclerView.adapter = cardAdapter
+        loadContent_inital()
+        recyclerView.adapter = CardAdapter(cardItemList)
 
         // Implement infinite scroll
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -51,20 +64,11 @@ class MainActivity : AppCompatActivity() {
                 val lastVisibleItem = layoutManager.findLastVisibleItemPosition()
 
                 if (lastVisibleItem == totalItemCount - 1) {
-                    // Load more items here
-                    loadMoreItems()
+                    loadContent_more()
+                    cardAdapter.notifyDataSetChanged()
                 }
             }
         })
     }
-    private fun loadMoreItems() {
-        // Simulate network request to load more items
-        // Add new items to the list
-        val imagem = "http://pngimg.com/uploads/pokemon/pokemon_PNG11.png"
-        cardItemList.add(CardItem(imagem, "Name3", "Title3", "Subtitle3", imagem))
-        cardItemList.add(CardItem(imagem, "Name4", "Title4", "Subtitle4", imagem))
-        // Notify adapter about data changes
-        cardAdapter.notifyDataSetChanged()
-    }
-
+    
 }
