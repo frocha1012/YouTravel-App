@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +29,7 @@ class Register : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signUpButton: Button
-
+    private lateinit var loginButton: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class Register : AppCompatActivity() {
         signUpButton = findViewById(R.id.signUpButton)
         ageEditText = findViewById(R.id.ageEditText)
         nationalityEditText = findViewById(R.id.nationalityEditText)
+        loginButton = findViewById(R.id.haveAccountTextView)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -65,6 +67,10 @@ class Register : AppCompatActivity() {
             val registerRequest = RegisterRequest(name, username, email, password, age, nationality)
             registerUser(registerRequest)
         }
+
+        loginButton.setOnClickListener {
+           navigateToLogin()
+        }
     }
 
     private fun registerUser(registerRequest: RegisterRequest) {
@@ -73,7 +79,7 @@ class Register : AppCompatActivity() {
             override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@Register, response.body()?.message, Toast.LENGTH_LONG).show()
-                    navigateToFrontPage()
+                    navigateToLogin()
                 } else {
                     Toast.makeText(this@Register, "Registration failed: ${response.errorBody()?.string()}", Toast.LENGTH_LONG).show()
                 }
@@ -85,12 +91,18 @@ class Register : AppCompatActivity() {
         })
     }
 
+    private fun navigateToLogin() {
+        val intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun navigateToFrontPage() {
         val intent = Intent(this, Frontpage::class.java)
         startActivity(intent)
         finish()
     }
-
+    
     private fun showDatePickerDialog(view: View) {
         val currentCalendar = Calendar.getInstance()
         val currentYear = currentCalendar.get(Calendar.YEAR)

@@ -59,6 +59,21 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".Intro1"
+            android:exported="false" />
+        <activity
+            android:name=".Intro2"
+            android:exported="false" />
+        <activity
+            android:name=".Intro3"
+            android:exported="false" />
+        <activity
+            android:name=".Intro4"
+            android:exported="false" />
+        <activity
+            android:name=".Intro5"
+            android:exported="false" />
+        <activity
             android:name=".Frontpage"
             android:exported="true">
             <intent-filter>
