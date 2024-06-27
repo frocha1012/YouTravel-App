@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,21 +20,30 @@ class Home : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val clearTokenButton = findViewById<Button>(R.id.clearTokenButton)
-        val addTravelButton = findViewById<Button>(R.id.addTravelButton)
-        clearTokenButton.setOnClickListener {
-            clearToken()
-        }
 
-        clearTokenButton.setOnClickListener {
-            clearToken()
-        }
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    true
+                }
 
-        addTravelButton.setOnClickListener {
-            navigateToAddTravel()
+                R.id.navigation_add -> {
+                    startActivity(Intent(this, Camera::class.java))
+
+                    true
+                }
+
+                R.id.navigation_personal_area -> {
+                    true
+                }
+
+                else -> {
+                    false
+                }
+            }
         }
     }
-
 
     private fun clearToken() {
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
@@ -47,11 +57,4 @@ class Home : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-    private fun navigateToAddTravel() {
-        val intent = Intent(this, AddTravel::class.java)
-        startActivity(intent)
-        finish()
-    }
-
 }

@@ -48,21 +48,20 @@ class Preview : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == UCrop.REQUEST_CROP) {
-            if (resultCode == RESULT_OK && data != null) {
-                val resultUri = UCrop.getOutput(data)
-                findViewById<ImageView>(R.id.image_preview).setImageURI(resultUri)
+        if (requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK && data != null) {
+            val resultUri = UCrop.getOutput(data)
+            findViewById<ImageView>(R.id.image_preview).setImageURI(resultUri)
 
-                findViewById<Button>(R.id.button_next).setOnClickListener {
-                    val intent = Intent(this, AddPost::class.java).apply {
-                        putExtra("imageUri", resultUri.toString())
-                    }
-                    startActivity(intent)
+            findViewById<Button>(R.id.button_next).setOnClickListener {
+                val intent = Intent(this, AddPost::class.java).apply {
+                    // Ensure you're passing the URI as a string correctly
+                    putExtra("imageUri", resultUri.toString())
                 }
-            } else if (resultCode == UCrop.RESULT_ERROR && data != null) {
-                val cropError = UCrop.getError(data)
-                Log.e("Preview", "Crop error: $cropError")
+                startActivity(intent)
             }
+        } else if (resultCode == UCrop.RESULT_ERROR && data != null) {
+            val cropError = UCrop.getError(data)
+            Log.e("Preview", "Crop error: $cropError")
         }
     }
 }

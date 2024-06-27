@@ -29,11 +29,6 @@ class Camera : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
-
-        findViewById<ImageView>(R.id.buttonBack).setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
     }
 
     fun takePicture(view: View) {
