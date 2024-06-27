@@ -42,6 +42,7 @@
     <string name="photoSentence">Choose your favorite picture, and showcase how awesome your photographic skills are!</string>
     <string name="preview">Preview</string>
     <string name="publish">Publish</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
     <!-- TODO: FERNANDO-->
 
