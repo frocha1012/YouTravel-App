@@ -17,7 +17,12 @@ class Intro5 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro5)
 
-
+        next_page = findViewById(R.id.buttonProximo)
+        next_page.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         previous_page = findViewById(R.id.buttonAnterior)
         previous_page.setOnClickListener {
             val intent = Intent(this, Intro4::class.java)

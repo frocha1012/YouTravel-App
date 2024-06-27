@@ -1,11 +1,7 @@
 package com.example.youtravel
-
 import android.content.Intent
-<<<<<<< HEAD
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-=======
->>>>>>> 1db45a3d75e93df55d41d6f18a18bbf482ab4c44
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +11,6 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
 import com.example.youtravel.config.Jwt
 import com.example.youtravel.model.TravelRequest
 import com.example.youtravel.model.TravelResponse
@@ -32,15 +27,6 @@ import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
-class AddPost : AppCompatActivity() {
-
-    private lateinit var titleEditText: EditText
-    private lateinit var descriptionEditText: EditText
-    private lateinit var publishButton: Button
-    private lateinit var ratingBar: RatingBar
-    private lateinit var imageView: ImageView
-=======
 import com.google.android.gms.common.api.Status
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
@@ -50,16 +36,21 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.libraries.places.api.net.PlacesClient
 
 
+
 class AddPost : AppCompatActivity() {
 
     private lateinit var placesClient: PlacesClient
->>>>>>> 1db45a3d75e93df55d41d6f18a18bbf482ab4c44
+
+    private lateinit var titleEditText: EditText
+    private lateinit var descriptionEditText: EditText
+    private lateinit var publishButton: Button
+    private lateinit var ratingBar: RatingBar
+    private lateinit var imageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_post)
 
-<<<<<<< HEAD
         titleEditText = findViewById(R.id.title_edit_text)
         descriptionEditText = findViewById(R.id.description_edit_text)
         publishButton = findViewById(R.id.publish_button)
@@ -166,7 +157,6 @@ class AddPost : AppCompatActivity() {
                 Toast.makeText(this@AddPost, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-=======
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, getString(R.string.google_maps_key))
         }
@@ -205,6 +195,5 @@ class AddPost : AppCompatActivity() {
 
     companion object {
         private const val AUTOCOMPLETE_REQUEST_CODE = 1
->>>>>>> 1db45a3d75e93df55d41d6f18a18bbf482ab4c44
     }
 }
