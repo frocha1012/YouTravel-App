@@ -1,5 +1,6 @@
 package com.example.youtravel
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -81,6 +82,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_add -> {
+                    startActivity(Intent(this, Camera::class.java))
+                    finish()
                     true
                 }
                 R.id.navigation_place -> {
@@ -89,7 +92,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_personal_area -> {
                     true
                 }
-                else -> false
+                else -> {
+                    false
+                }
             }
         }
     }
