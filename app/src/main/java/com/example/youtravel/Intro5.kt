@@ -23,7 +23,6 @@ class Intro5 : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
         previous_page = findViewById(R.id.buttonAnterior)
         previous_page.setOnClickListener {
             val intent = Intent(this, Intro4::class.java)
