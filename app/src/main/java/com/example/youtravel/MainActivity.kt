@@ -83,10 +83,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_add -> {
                     startActivity(Intent(this, Camera::class.java))
-                    finish()
+
                     true
                 }
                 R.id.navigation_place -> {
+                    startActivity(Intent(this, MapsActivity::class.java))
+
                     true
                 }
                 R.id.navigation_personal_area -> {
