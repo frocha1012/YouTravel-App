@@ -70,9 +70,16 @@ dependencies {
     //implementation("com.theartofdev.edmodo:android-image-cropper:2.8.0") // NAO FUNCIONA
     implementation("com.github.yalantis:ucrop:2.2.6")
 
+    implementation("com.google.android.libraries.places:places:2.6.0")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
+    implementation("com.google.maps.android:places-ktx:2.0.0")
+    implementation("com.google.android.material:material:1.2.1")
+
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.github.bumptech.glide:okhttp3-integration:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

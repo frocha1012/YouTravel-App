@@ -86,11 +86,6 @@ class MainActivity : AppCompatActivity() {
 
                     true
                 }
-                R.id.navigation_place -> {
-                    startActivity(Intent(this, MapsActivity::class.java))
-
-                    true
-                }
                 R.id.navigation_personal_area -> {
                     true
                 }
