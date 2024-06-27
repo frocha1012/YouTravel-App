@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/main15">
 
-    <!-- AppBarLayout for the toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -36,7 +35,6 @@
             app:tint="@color/main100"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- ImageView adjusted with constraints -->
     <ImageView
         android:id="@+id/image_preview"
         android:layout_width="0dp"
@@ -52,4 +50,12 @@
         android:paddingTop="48dp"
         android:paddingBottom="48dp"/>
 
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

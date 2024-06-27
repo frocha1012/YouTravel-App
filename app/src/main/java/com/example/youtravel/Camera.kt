@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-
 class Camera : AppCompatActivity() {
 
     private lateinit var imageUri: Uri
@@ -42,7 +41,7 @@ class Camera : AppCompatActivity() {
 
     private fun startPreviewActivity(imageUri: Uri) {
         Intent(this, Preview::class.java).also { intent ->
-            intent.putExtra("imageUri", imageUri)
+            intent.putExtra("imageUri", imageUri.toString()) // Pass URI as string
             startActivity(intent)
         }
     }

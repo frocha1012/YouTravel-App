@@ -65,6 +65,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // https://mvnrepository.com/artifact/com.theartofdev.edmodo/android-image-cropper
+    //implementation("com.theartofdev.edmodo:android-image-cropper:2.8.0") // NAO FUNCIONA
+    implementation("com.github.yalantis:ucrop:2.2.6")
+
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.github.bumptech.glide:okhttp3-integration:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
