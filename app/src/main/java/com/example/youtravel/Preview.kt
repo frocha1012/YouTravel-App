@@ -18,13 +18,22 @@ class Preview : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preview)
 
-        val imageUriString = intent.getStringExtra("imageUri") // Get the URI as a String
+        val imageUriString = intent.getStringExtra("imageUri")
         if (imageUriString != null) {
-            imageUri = Uri.parse(imageUriString) // Convert the String back to URI
+            imageUri = Uri.parse(imageUriString)
             startCrop(imageUri)
         } else {
-            // Handle error if imageUri is null
             Log.e("Preview", "Received null imageUri")
+        }
+
+        // Set up the Back button to navigate back to the Camera activity
+        findViewById<Button>(R.id.button_back).setOnClickListener {
+            // Option 1: Explicitly start the Camera activity (if it should restart)
+            val intent = Intent(this, Camera::class.java)
+            startActivity(intent)
+
+            // Option 2: Simply finish the current activity to go back to the previous one
+            // finish()
         }
     }
 
@@ -42,23 +51,17 @@ class Preview : AppCompatActivity() {
         if (requestCode == UCrop.REQUEST_CROP) {
             if (resultCode == RESULT_OK && data != null) {
                 val resultUri = UCrop.getOutput(data)
-                if (resultUri != null) {
-                    findViewById<ImageView>(R.id.image_preview).setImageURI(resultUri)
+                findViewById<ImageView>(R.id.image_preview).setImageURI(resultUri)
 
-                    findViewById<Button>(R.id.button_next).setOnClickListener {
-                        Log.d("Preview", "Next button clicked")
-                        val intent = Intent(this, AddPost::class.java).apply {
-                            putExtra("imageUri", resultUri.toString()) // Pass the URI as a String
-                        }
-                        startActivity(intent)
+                findViewById<Button>(R.id.button_next).setOnClickListener {
+                    val intent = Intent(this, AddPost::class.java).apply {
+                        putExtra("imageUri", resultUri.toString())
                     }
-                } else {
-                    Log.e("Preview", "Cropped image URI is null")
+                    startActivity(intent)
                 }
             } else if (resultCode == UCrop.RESULT_ERROR && data != null) {
                 val cropError = UCrop.getError(data)
                 Log.e("Preview", "Crop error: $cropError")
-                // Handle the cropping error
             }
         }
     }
