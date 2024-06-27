@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/main15"
     tools:context=".Register">
 
     <ImageButton
@@ -19,7 +19,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:scaleType="fitXY"
-        app:tint="@color/black" />
+        app:tint="@color/main100" />
 
     <TextView
         android:id="@+id/signUpTextView"
@@ -43,36 +43,38 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_background"
         android:fontFamily="@font/poppins_medium"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:textColorHint="@color/main50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpTextView" />
+        app:layout_constraintTop_toBottomOf="@id/signUpTextView"
+        app:backgroundTint="@color/main100"/>
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/edit_text_background"
         android:fontFamily="@font/poppins_medium"
-        android:hint="Name"
+        android:hint="@string/name"
         android:padding="16dp"
         android:textColorHint="@color/main50"
         app:layout_constraintEnd_toStartOf="@+id/usernameEditText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        app:backgroundTint="@color/main100"/>
 
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_background"
         android:fontFamily="@font/poppins_medium"
@@ -81,14 +83,15 @@
         android:textColorHint="@color/main50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nameEditText"
-        app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        app:backgroundTint="@color/main100"/>
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_background"
         android:fontFamily="@font/poppins_medium"
@@ -97,14 +100,16 @@
         android:padding="16dp"
         android:textColorHint="@color/main50"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+        app:layout_constraintTop_toBottomOf="@id/nameEditText"
+        app:backgroundTint="@color/main100"/>
 
     <LinearLayout
         android:id="@+id/ageAndNationalityContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:orientation="horizontal"
@@ -124,21 +129,24 @@
             android:focusable="false"
             android:onClick="showDatePickerDialog"
             android:padding="16dp"
-            android:textColorHint="@color/main50" />
+            android:textColorHint="@color/main50"
+            app:backgroundTint="@color/main100" />
 
         <EditText
             android:id="@+id/nationalityEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="10dp"
             android:background="@drawable/edit_text_background"
+            android:focusable="false"
             android:fontFamily="@font/poppins_medium"
             android:hint="@string/country"
             android:inputType="none"
-            android:focusable="false"
             android:onClick="showNationalityDialog"
             android:padding="16dp"
-            android:textColorHint="@color/main50" />
+            android:textColorHint="@color/main50"
+            app:backgroundTint="@color/main100"/>
     </LinearLayout>
 
     <Button
@@ -151,7 +159,8 @@
         android:text="@string/signUp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/main50"
+        android:padding="16dp"
+        app:backgroundTint="@color/main100"
         app:cornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -166,9 +175,8 @@
         android:text="@string/already_have_account"
         android:fontFamily="@font/poppins_medium"
         android:textSize="14sp"
-        android:textColor="@color/main"
+        android:textColor="@color/main100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signUpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

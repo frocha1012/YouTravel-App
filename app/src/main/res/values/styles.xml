@@ -1,0 +1,24 @@
+<resources>
+    <!-- Define your custom EditText style -->
+    <style name="CustomEditTextStyle">
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:inputType">text</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColorHint">@color/main50</item>
+        <item name="android:backgroundTint">@color/main100</item>
+    </style>
+
+    <!-- Define your custom Button style -->
+    <style name="CustomButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:backgroundTint">@color/main100</item>
+    </style>
+</resources>

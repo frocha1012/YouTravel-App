@@ -22,4 +22,10 @@
     <string name="country">País</string>
     <string name="signUp">Registar</string>
     <string name="signUp_phrase">Regista-te e começa a partilhar!</string>
+    <string name="takePhoto">Camera</string>
+    <string name="gallery">Galeria</string>
+    <string name="newPost">Adiciona uma nova imagem</string>
+    <string name="photoSentence">Mostra o fotógrafo que há em ti com uma foto da tua viagem!</string>
+    <string name="preview">Preview</string>
+    <string name="publish">Publicar</string>
 </resources>
