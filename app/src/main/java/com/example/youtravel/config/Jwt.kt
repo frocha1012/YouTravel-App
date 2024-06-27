@@ -1,0 +1,43 @@
+package com.example.youtravel.config
+
+import android.content.Context
+import android.util.Base64
+import org.json.JSONException
+import org.json.JSONObject
+
+class Jwt {
+
+    fun getUserID(context: Context): String? {
+        val token = getToken(context)
+        return token?.let { getUserIdFromToken(it) }
+    }
+
+    private fun decodeJWT(token: String): String? {
+        return try {
+            val parts = token.split(".")
+            val base64EncodedBody = parts[1]
+            val base64DecodedBytes = Base64.decode(base64EncodedBody, Base64.URL_SAFE)
+            String(base64DecodedBytes, charset("UTF-8"))
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    private fun getUserIdFromToken(token: String): String? {
+        val jsonPayload = decodeJWT(token)
+        jsonPayload?.let {
+            try {
+                val jsonObject = JSONObject(it)
+                return jsonObject.getString("sub")
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+        }
+        return null
+    }
+
+    private fun getToken(context: Context): String? {
+        val sharedPreferences = context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("token", null)
+    }
+}

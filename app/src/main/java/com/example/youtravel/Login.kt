@@ -109,4 +109,9 @@ class Login : AppCompatActivity() {
         editor.putString("token", token)
         editor.apply()
     }
+
+    private fun getToken(): String? {
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        return sharedPreferences.getString("token", null)  // Returns null if token does not exist
+    }
 }
