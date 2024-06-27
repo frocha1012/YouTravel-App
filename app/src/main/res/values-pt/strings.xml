@@ -27,4 +27,5 @@
     <string name="newPost">Adiciona uma nova imagem</string>
     <string name="photoSentence">Mostra o fotógrafo que há em ti com uma foto da tua viagem!</string>
     <string name="preview">Preview</string>
+    <string name="publish">Publicar</string>
 </resources>
