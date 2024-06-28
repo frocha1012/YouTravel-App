@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class Frontpage : AppCompatActivity() {
 
-    private lateinit var alreadyButton: Button
     private lateinit var getStarted: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +17,6 @@ class Frontpage : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_frontpage)
 
-        alreadyButton = findViewById(R.id.alreadyHaveButton)
         getStarted = findViewById(R.id.getStartedButton)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -26,15 +24,9 @@ class Frontpage : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         getStarted.setOnClickListener {
             navigateToRegister()
         }
-
-        alreadyButton.setOnClickListener {
-            navigateToLogin()
-        }
-
     }
 
     private fun navigateToRegister(){
@@ -45,11 +37,6 @@ class Frontpage : AppCompatActivity() {
     }
 
 
-    private fun navigateToLogin(){
-        val intent = Intent(this, Login::class.java)
-        startActivity(intent)
-        finish()
-    }
     private fun navigateToHome() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
