@@ -1,12 +1,10 @@
 package com.example.youtravel.model
 
 data class Travel(
-    val ID: Long,
-    val UserIDAdmin: Long,
-    val CategoryID: Long,
-    val Description: String,
-    val Date: String,
-    val Rating: String,
-    val User: User,
-    val Category: Category
+    val id: Int,
+    val title: String,
+    val description: String,
+    val date: String,
+    val rating: Float,
+    val photo: String
 )

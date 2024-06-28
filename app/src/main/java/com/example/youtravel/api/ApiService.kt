@@ -5,6 +5,7 @@ import com.example.youtravel.model.LoginRequest
 import com.example.youtravel.model.LoginResponse
 import com.example.youtravel.model.RegisterRequest
 import com.example.youtravel.model.RegisterResponse
+import com.example.youtravel.model.Travel
 import com.example.youtravel.model.TravelRequest
 import com.example.youtravel.model.TravelResponse
 import okhttp3.MultipartBody
@@ -15,6 +16,8 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
+import retrofit2.http.Streaming
 
 interface ApiService {
 
@@ -33,4 +36,11 @@ interface ApiService {
 
     @GET("categories")
     fun getCategories(): Call<List<Category>>
+
+    @GET("userTravel/{userId}")
+    fun getTravelsByUserId(@Path("userId") userId: Int): Call<List<Travel>>
+
+    @Streaming
+    @GET("travelImage/{travelId}")
+    fun getTravelImage(@Path("travelId") travelId: String): Call<ResponseBody>
 }

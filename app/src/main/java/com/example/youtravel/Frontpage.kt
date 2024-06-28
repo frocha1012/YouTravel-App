@@ -17,6 +17,7 @@ class Frontpage : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_frontpage)
 
+
         getStarted = findViewById(R.id.getStartedButton)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -24,6 +25,7 @@ class Frontpage : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         getStarted.setOnClickListener {
             navigateToRegister()
         }
@@ -37,8 +39,8 @@ class Frontpage : AppCompatActivity() {
     }
 
 
-    private fun navigateToHome() {
-        val intent = Intent(this, MainActivity::class.java)
+    private fun navigateToLogin(){
+        val intent = Intent(this, Login::class.java)
         startActivity(intent)
         finish()
     }
