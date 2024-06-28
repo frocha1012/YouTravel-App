@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.youtravel.config.Jwt
 import com.example.youtravel.model.Travel
 import com.example.youtravel.network.RetrofitClient
@@ -31,8 +32,17 @@ class Travels : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val swipeRefreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefreshLayout)
         recyclerView = view.findViewById(R.id.rvTravels)
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        adapter = TravelAdapter(listOf())
+        recyclerView.adapter = adapter
+
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = false
+        }
+
         fetchTravels()
     }
 

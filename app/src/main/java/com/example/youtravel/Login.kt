@@ -23,6 +23,10 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        if(isUserLoggedIn()){
+            navigateToMainActivity()
+        }
+
         val emailEditText = findViewById<EditText>(R.id.inputEmail)
         val passwordEditText = findViewById<EditText>(R.id.inputPassword)
         val loginButton = findViewById<Button>(R.id.buttonCustom)
@@ -98,6 +102,12 @@ class Login : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 
     private fun validateInput(email: String, password: String): Boolean {
         return email.isNotEmpty() && password.isNotEmpty()
@@ -110,6 +120,10 @@ class Login : AppCompatActivity() {
         editor.apply()
     }
 
+    private fun isUserLoggedIn(): Boolean {
+        val token = getToken()
+        return token != null && token.isNotEmpty()
+    }
     private fun getToken(): String? {
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
         return sharedPreferences.getString("token", null)  // Returns null if token does not exist
