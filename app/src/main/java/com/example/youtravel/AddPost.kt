@@ -145,17 +145,16 @@ class AddPost : AppCompatActivity() {
 
     private fun postTravel(fileName: String) {
         val selectedCategoryId = categoryList[categorySpinner.selectedItemPosition].category_id
-        val userId = Jwt().getUserID(this)
+        val userId = Jwt().getUserID(this@AddPost)
 
-        Log.d("AddPost", "UserID: $userId")
-
+        val currentDateTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
 
         val travelRequest = TravelRequest(
             user_id_admin = userId,
             category_id = selectedCategoryId,
             title = titleEditText.text.toString(),
             description = descriptionEditText.text.toString(),
-            date = "2024-06-01",
+            date = currentDateTime,
             rating = ratingBar.rating.toString(),
             photo = fileName
         )
@@ -181,19 +180,9 @@ class AddPost : AppCompatActivity() {
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, getString(R.string.google_maps_key))
         }
-        placesClient = Places.createClient(this)
-
-        val imageUriString: String? = intent.getStringExtra("imageUri")
-        imageUriString?.let {
-            val imageUri: Uri = Uri.parse(it)
-            imageView.setImageURI(imageUri)
-        } ?: Log.e("AddPost", "Received null imageUri")
-
-        val inputEditText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
-        inputEditText.setOnClickListener {
-            startAutocompleteActivity()
-        }
+        placesClient = Places.createClient(this@AddPost)
     }
+
 
     private fun loadCategories() {
         RetrofitClient.instance.getCategories().enqueue(object : Callback<List<Category>> {
