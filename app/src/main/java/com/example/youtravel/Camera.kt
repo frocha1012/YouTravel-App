@@ -19,6 +19,7 @@ import java.util.Locale
 class Camera : AppCompatActivity() {
 
     private lateinit var imageUri: Uri
+
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
         if (success) {
             startPreviewActivity(imageUri)
