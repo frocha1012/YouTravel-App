@@ -44,7 +44,7 @@ class IntroMain : AppCompatActivity() {
         // Set a click listener on the TextView
         skipIntroText.setOnClickListener {
             // Start an Intent to navigate to the main activity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
             finish() // Optionally finish the current activity if it should not be in the back stack
         }
