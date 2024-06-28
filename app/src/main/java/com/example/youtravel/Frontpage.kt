@@ -21,10 +21,6 @@ class Frontpage : AppCompatActivity() {
         alreadyButton = findViewById(R.id.alreadyHaveButton)
         getStarted = findViewById(R.id.getStartedButton)
 
-        if (isTokenPresent()){
-            navigateToHome()
-        }
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -51,12 +47,6 @@ class Frontpage : AppCompatActivity() {
 
     private fun navigateToLogin(){
         val intent = Intent(this, Login::class.java)
-        startActivity(intent)
-        finish()
-    }
-
-    private fun navigateToHome() {
-        val intent = Intent(this, Home::class.java)
         startActivity(intent)
         finish()
     }

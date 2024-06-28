@@ -5,13 +5,16 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RatingBar
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.youtravel.config.Jwt
+import com.example.youtravel.model.Category
 import com.example.youtravel.model.TravelRequest
 import com.example.youtravel.model.TravelResponse
 import com.example.youtravel.network.RetrofitClient
@@ -36,7 +39,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.libraries.places.api.net.PlacesClient
 
 
-
 class AddPost : AppCompatActivity() {
 
     private lateinit var placesClient: PlacesClient
@@ -46,10 +48,17 @@ class AddPost : AppCompatActivity() {
     private lateinit var publishButton: Button
     private lateinit var ratingBar: RatingBar
     private lateinit var imageView: ImageView
+    private lateinit var categorySpinner: Spinner
+
+    private var categoryList: List<Category> = listOf()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_post)
+
+        categorySpinner = findViewById(R.id.category_spinner)
+        loadCategories()
 
         titleEditText = findViewById(R.id.title_edit_text)
         descriptionEditText = findViewById(R.id.description_edit_text)
@@ -90,7 +99,6 @@ class AddPost : AppCompatActivity() {
         // Load the image from the file path
         val bitmap = BitmapFactory.decodeFile(filePath)
 
-// Convert bitmap to PNG and save it to a temporary file with a unique timestamp in the filename
         val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
         val pngFile = File(cacheDir, "upload_image_$timestamp.png")
         FileOutputStream(pngFile).use { outStream ->
@@ -106,7 +114,7 @@ class AddPost : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val imageUrl = response.body()?.string()
                     Log.d("Upload Image", "Image URL: $imageUrl")
-                    callback(imageUrl)
+                    callback(pngFile.name)
                 } else {
                     Log.e("Upload Image", "Upload failed: ${response.errorBody()?.string()}")
                     callback(null)
@@ -135,13 +143,21 @@ class AddPost : AppCompatActivity() {
     }
 
 
-    private fun postTravel(imageUrl: String) {
+    private fun postTravel(fileName: String) {
+        val selectedCategoryId = categoryList[categorySpinner.selectedItemPosition].category_id
+        val userId = Jwt().getUserID(this)
+
+        Log.d("AddPost", "UserID: $userId")
+
+
         val travelRequest = TravelRequest(
-            user_id_admin = "known-good-user-id",
-            title = "Test Title",
-            description = "Test Description",
-            rating = "5",
-            photo = imageUrl
+            user_id_admin = userId,
+            category_id = selectedCategoryId,
+            title = titleEditText.text.toString(),
+            description = descriptionEditText.text.toString(),
+            date = "2024-06-01",
+            rating = ratingBar.rating.toString(),
+            photo = fileName
         )
 
         RetrofitClient.instance.createTravel(travelRequest).enqueue(object : Callback<TravelResponse> {
@@ -149,20 +165,24 @@ class AddPost : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Toast.makeText(this@AddPost, "Travel created successfully!", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@AddPost, "Failed to create travel: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("Post Travel", "Failed to create travel: $errorBody")
+                    Toast.makeText(this@AddPost, "Failed to create travel: $errorBody", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<TravelResponse>, t: Throwable) {
+                Log.e("Post Travel", "Error: ${t.message}")
                 Toast.makeText(this@AddPost, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+
+        // Initialize Places Client if not already done
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, getString(R.string.google_maps_key))
         }
         placesClient = Places.createClient(this)
 
-        val imageView: ImageView = findViewById(R.id.image_thumbnail)
         val imageUriString: String? = intent.getStringExtra("imageUri")
         imageUriString?.let {
             val imageUri: Uri = Uri.parse(it)
@@ -174,6 +194,33 @@ class AddPost : AppCompatActivity() {
             startAutocompleteActivity()
         }
     }
+
+    private fun loadCategories() {
+        RetrofitClient.instance.getCategories().enqueue(object : Callback<List<Category>> {
+            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { categories ->
+                        categoryList = categories
+                        val adapter = ArrayAdapter(
+                            this@AddPost,
+                            android.R.layout.simple_spinner_item,
+                            categoryList.map { it.description }
+                        )
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        categorySpinner.adapter = adapter
+                    }
+                } else {
+                    Toast.makeText(this@AddPost, "Failed to fetch categories", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Category>>, t: Throwable) {
+                Toast.makeText(this@AddPost, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+
 
     private fun startAutocompleteActivity() {
         val fields = listOf(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS)
