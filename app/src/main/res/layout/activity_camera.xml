@@ -33,10 +33,11 @@
             app:tint="@color/main100"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Rest of the layout remains the same -->
+    <!-- Content container -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:layout_marginTop="30dp"
         android:padding="16dp">
@@ -88,5 +89,19 @@
             app:backgroundTint="@color/main100"
             app:cornerRadius="8dp"
             android:onClick="chooseFromGallery"/>
+
     </LinearLayout>
+
+    <!-- BottomNavigationView is here to ensure it's at the bottom of the screen -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main70"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconTint="@color/main100"
+        app:labelVisibilityMode="unlabeled"
+        style="@style/BottomNavigationTheme"/>
+
 </LinearLayout>

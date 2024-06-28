@@ -9,6 +9,7 @@ import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -34,6 +35,26 @@ class Camera : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_new_post -> {
+                    //current
+                    true
+                }
+                R.id.navigation_feed -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.navigation_user_edit -> {
+                    startActivity(Intent(this, UserEdit::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+        // Set the current item without animation to avoid reload
+        bottomNavigationView.selectedItemId = R.id.navigation_new_post
     }
 
     fun takePicture(view: View) {
