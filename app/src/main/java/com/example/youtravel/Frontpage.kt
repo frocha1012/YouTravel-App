@@ -18,7 +18,7 @@ class Frontpage : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_frontpage)
 
-        alreadyButton = findViewById(R.id.alreadyHaveButton)
+
         getStarted = findViewById(R.id.getStartedButton)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
