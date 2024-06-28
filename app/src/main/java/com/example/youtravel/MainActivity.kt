@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fragment_container, Travels())
                 .commit()
         }
+
+
     }
     private fun clearToken() {
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
