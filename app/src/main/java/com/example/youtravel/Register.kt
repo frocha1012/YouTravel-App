@@ -103,7 +103,7 @@ class Register : AppCompatActivity() {
         finish()
     }
     
-    private fun showDatePickerDialog(view: View) {
+    fun showDatePickerDialog(view: View) {
         val currentCalendar = Calendar.getInstance()
         val currentYear = currentCalendar.get(Calendar.YEAR)
         val currentMonth = currentCalendar.get(Calendar.MONTH)
@@ -117,7 +117,7 @@ class Register : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    private fun showNationalityDialog(view: View) {
+    fun showNationalityDialog(view: View) {
         val items = arrayOf(
             "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan",
             "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria",
