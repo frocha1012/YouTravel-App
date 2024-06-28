@@ -34,4 +34,8 @@
     <string name="insertTitle">Inserir um Título</string>
     <string name="insertDescription">Insira uma Descrição</string>
     <string name="addLocation">Localização</string>
+    <string name="editProfile">Edite o seu perfil</string>
+    <string name="changePassword">Nova palavra-passe</string>
+    <string name="changeUsername">Novo nome de utilizador</string>
+    <string name="changeName">Novo nome</string>
 </resources>

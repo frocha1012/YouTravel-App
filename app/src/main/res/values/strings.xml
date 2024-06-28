@@ -45,6 +45,11 @@
     <string name="insertTitle">Insert Title</string>
     <string name="insertDescription">Insert Description</string>
     <string name="addLocation">Add a location</string>
+    <string name="editProfile">Edit your profile</string>
+    <string name="changePassword">New password</string>
+    <string name="changeUsername">New username</string>
+    <string name="changeName">New name</string>
+    <string name="confirmEdit">Confirm Edit</string>
 
     <!-- TODO: FERNANDO-->
 
