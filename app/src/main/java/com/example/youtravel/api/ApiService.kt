@@ -37,7 +37,7 @@ interface ApiService {
     @GET("categories")
     fun getCategories(): Call<List<Category>>
 
-    @GET("userTravel/:userId")
+    @GET("userTravel/{userId}")
     fun getTravelsByUserId(@Path("userId") userId: Int): Call<List<Travel>>
 
     @Streaming

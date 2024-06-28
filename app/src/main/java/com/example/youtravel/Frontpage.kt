@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class Frontpage : AppCompatActivity() {
 
-    private lateinit var alreadyButton: Button
     private lateinit var getStarted: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,11 +29,6 @@ class Frontpage : AppCompatActivity() {
         getStarted.setOnClickListener {
             navigateToRegister()
         }
-
-        alreadyButton.setOnClickListener {
-            navigateToLogin()
-        }
-
     }
 
     private fun navigateToRegister(){
