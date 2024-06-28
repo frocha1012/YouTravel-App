@@ -21,4 +21,10 @@
         <item name="android:padding">16dp</item>
         <item name="android:backgroundTint">@color/main100</item>
     </style>
+
+    <!-- res/values/styles.xml -->
+    <style name="BottomNavigationTheme" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconSize">30dp</item> <!-- Set icon size to 1.5x of default size (usually around 24dp) -->
+    </style>
+
 </resources>
