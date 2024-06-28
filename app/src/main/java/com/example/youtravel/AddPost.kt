@@ -35,8 +35,6 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.libraries.places.api.net.PlacesClient
 
-
-
 class AddPost : AppCompatActivity() {
 
     private lateinit var placesClient: PlacesClient
@@ -50,12 +48,22 @@ class AddPost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_post)
-
+        ///////////////////////////////////////////////
+        if (!Places.isInitialized()) {
+            Places.initialize(applicationContext, getString(R.string.google_maps_key))
+        }
+        placesClient = Places.createClient(this)
+        val inputEditText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
+        inputEditText.setOnClickListener {
+            startAutocompleteActivity()
+        }
+        ///////////////////////////////////////////////
         titleEditText = findViewById(R.id.title_edit_text)
         descriptionEditText = findViewById(R.id.description_edit_text)
         publishButton = findViewById(R.id.publish_button)
         ratingBar = findViewById(R.id.rating_bar)
         imageView = findViewById(R.id.image_thumbnail)
+
 
         val imageUriString = intent.getStringExtra("imageUri")
         if (imageUriString != null) {
@@ -76,6 +84,27 @@ class AddPost : AppCompatActivity() {
             Toast.makeText(this, "Error: No image URI passed to AddPost", Toast.LENGTH_LONG).show()
             Log.e("AddPost", "No image URI passed to activity")
         }
+    }
+    private fun startAutocompleteActivity() {
+        val fields = listOf(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS)
+        val intent = Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields).build(this)
+        startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            val place = Autocomplete.getPlaceFromIntent(data)
+            val editText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
+            editText.setText(place.address)
+        } else if (resultCode == AutocompleteActivityMode.PARCELABLE_WRITE_RETURN_VALUE) {
+            val status: Status = Autocomplete.getStatusFromIntent(data!!)
+            Log.e("AddPost", "Error: ${status.statusMessage}")
+        }
+    }
+
+    companion object {
+        private const val AUTOCOMPLETE_REQUEST_CODE = 1
     }
 
 
@@ -157,10 +186,6 @@ class AddPost : AppCompatActivity() {
                 Toast.makeText(this@AddPost, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-        if (!Places.isInitialized()) {
-            Places.initialize(applicationContext, getString(R.string.google_maps_key))
-        }
-        placesClient = Places.createClient(this)
 
         val imageView: ImageView = findViewById(R.id.image_thumbnail)
         val imageUriString: String? = intent.getStringExtra("imageUri")
@@ -169,31 +194,5 @@ class AddPost : AppCompatActivity() {
             imageView.setImageURI(imageUri)
         } ?: Log.e("AddPost", "Received null imageUri")
 
-        val inputEditText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
-        inputEditText.setOnClickListener {
-            startAutocompleteActivity()
-        }
-    }
-
-    private fun startAutocompleteActivity() {
-        val fields = listOf(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS)
-        val intent = Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields).build(this)
-        startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == AUTOCOMPLETE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            val place = Autocomplete.getPlaceFromIntent(data)
-            val editText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
-            editText.setText(place.address)
-        } else if (resultCode == AutocompleteActivityMode.PARCELABLE_WRITE_RETURN_VALUE) {
-            val status: Status = Autocomplete.getStatusFromIntent(data!!)
-            Log.e("AddPost", "Error: ${status.statusMessage}")
-        }
-    }
-
-    companion object {
-        private const val AUTOCOMPLETE_REQUEST_CODE = 1
     }
 }
