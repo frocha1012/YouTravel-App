@@ -15,7 +15,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <!-- FrameLayout for hosting fragments -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
