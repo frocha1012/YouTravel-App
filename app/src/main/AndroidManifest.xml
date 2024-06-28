@@ -46,7 +46,7 @@
             android:name=".Preview"
             android:exported="true" />
         <activity
-            android:name=".Frontpage"
+            android:name=".Camera"
             android:exported="false" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
@@ -83,7 +83,7 @@
             android:name=".Intro5"
             android:exported="false" />
         <activity
-            android:name=".Camera"
+            android:name=".Frontpage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

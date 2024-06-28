@@ -1,6 +1,6 @@
 package com.example.youtravel.model
 
 data class Category(
-    val ID: Long,
-    val Description: String
+    val category_id: Int,
+    val description: String
 )
