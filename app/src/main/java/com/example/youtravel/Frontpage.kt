@@ -1,5 +1,6 @@
 package com.example.youtravel
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -54,5 +55,4 @@ class Frontpage : AppCompatActivity() {
         val token = sharedPreferences.getString("token", null)
         return token != null
     }
-
 }

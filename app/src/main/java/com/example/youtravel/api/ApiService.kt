@@ -8,6 +8,9 @@ import com.example.youtravel.model.RegisterResponse
 import com.example.youtravel.model.Travel
 import com.example.youtravel.model.TravelRequest
 import com.example.youtravel.model.TravelResponse
+import com.example.youtravel.model.User
+import com.example.youtravel.model.UserDetails
+import com.example.youtravel.model.UserDetailsInfo
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -15,6 +18,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Streaming
@@ -43,4 +47,10 @@ interface ApiService {
     @Streaming
     @GET("travelImage/{travelId}")
     fun getTravelImage(@Path("travelId") travelId: String): Call<ResponseBody>
+
+    @PUT("user/{userId}")
+    fun updateUser(@Path("userId") userId: String, @Body userInfo: UserDetailsInfo): Call<UserDetailsInfo>
+
+    @GET("user/{userId}")
+    fun getUserDetails(@Path("userId") userId: Int): Call<UserDetails>
 }
