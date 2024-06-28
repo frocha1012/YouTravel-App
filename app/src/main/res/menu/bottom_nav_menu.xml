@@ -4,13 +4,13 @@
     <item
         android:id="@+id/navigation_new_post"
         android:icon="@drawable/baseline_camera_alt_24"
-        android:title="addPost"/>
+        android:title="Add Post"/>
     <item
         android:id="@+id/navigation_feed"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="feed"/>
+        android:title="Feed"/>
     <item
         android:id="@+id/navigation_user_edit"
         android:icon="@drawable/baseline_people_24"
-        android:title="userEdit"/>
+        android:title="User Edit"/>
 </menu>
