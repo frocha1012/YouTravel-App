@@ -27,21 +27,6 @@
         <activity
             android:name=".IntroMain"
             android:exported="true" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDEqUcmn4p-EH5rvGMC5esDkcPtLW0b0vw" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.youtravel.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
         <activity
             android:name=".UserEdit"
             android:exported="false" />
@@ -79,6 +64,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDEqUcmn4p-EH5rvGMC5esDkcPtLW0b0vw" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.youtravel.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>
