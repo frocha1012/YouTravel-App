@@ -74,26 +74,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        navView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    true
-                }
-                R.id.navigation_add -> {
-                    startActivity(Intent(this, Camera::class.java))
-
-                    true
-                }
-                R.id.navigation_personal_area -> {
-                    true
-                }
-                else -> {
-                    false
-                }
-            }
         }
     }
-    
-}

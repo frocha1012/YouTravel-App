@@ -75,6 +75,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
     implementation("com.google.maps.android:places-ktx:2.0.0")
     implementation("com.google.android.material:material:1.2.1")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.github.bumptech.glide:okhttp3-integration:4.12.0")

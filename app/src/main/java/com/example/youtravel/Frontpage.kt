@@ -50,6 +50,11 @@ class Frontpage : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+    private fun navigateToHome() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
     private fun isTokenPresent(): Boolean {
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
