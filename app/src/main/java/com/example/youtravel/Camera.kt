@@ -1,5 +1,6 @@
 package com.example.youtravel
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -18,6 +19,7 @@ import java.util.Locale
 class Camera : AppCompatActivity() {
 
     private lateinit var imageUri: Uri
+
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
         if (success) {
             startPreviewActivity(imageUri)
@@ -50,6 +52,11 @@ class Camera : AppCompatActivity() {
                     startActivity(Intent(this, UserEdit::class.java))
                     true
                 }
+                R.id.navigation_logout -> {
+                    clearToken()
+                    navigateToLogin()
+                    true
+                }
                 else -> false
             }
         }
@@ -78,5 +85,14 @@ class Camera : AppCompatActivity() {
         val storageDir: File = getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
         val imageFile = File(storageDir, "JPEG_${timeStamp}.jpg")
         return FileProvider.getUriForFile(this, "com.example.youtravel.fileprovider", imageFile)
+    }
+    private fun clearToken() {
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        sharedPreferences.edit().remove("token").apply()
+    }
+    private fun navigateToLogin() {
+        val intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
     }
 }

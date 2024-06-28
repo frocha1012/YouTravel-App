@@ -21,17 +21,24 @@ class IntroMain : AppCompatActivity() {
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
             IntroSlider(
-                "Sunlight",
-                "Sunlight is the light and energy that comes from the Sun.",
-                R.drawable.logo_1
-            ),IntroSlider(
-                "Pay Online",
-                "Electronic bill payment is a feature of online, mobile and telephone banking.",
-                R.drawable.logo_2
-            ),IntroSlider(
-                "@string/login",
-                "Streaming media is multimedia that is constantly received by and presented to an end-user.",
-                R.drawable.logo_3
+                "Discover",
+                "Explore new places, experiences, and adventures. Discover the world through the eyes of your friends and fellow travelers.",
+                R.drawable.pic1
+            ),
+            IntroSlider(
+                "Capture & Share",
+                "Capture your moments and share them with friends. Let your photos tell your story.",
+                R.drawable.pic2
+            ),
+            IntroSlider(
+                "Connect",
+                "Connect with nature. Follow friends and like-minded travelers to see their latest journeys.",
+                R.drawable.pic4
+            ),
+            IntroSlider(
+                "Get Inspired",
+                "Get inspired by the community, find new ideas for your next trip in the mountains, and discover top-rated experiences.",
+                R.drawable.pic3
             )
         )
     )
@@ -44,7 +51,7 @@ class IntroMain : AppCompatActivity() {
         // Set a click listener on the TextView
         skipIntroText.setOnClickListener {
             // Start an Intent to navigate to the main activity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
             finish() // Optionally finish the current activity if it should not be in the back stack
         }

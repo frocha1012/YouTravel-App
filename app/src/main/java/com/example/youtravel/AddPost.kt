@@ -41,7 +41,6 @@ import com.google.android.libraries.places.api.net.PlacesClient
 class AddPost : AppCompatActivity() {
 
     private lateinit var placesClient: PlacesClient
-
     private lateinit var titleEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var publishButton: Button
@@ -248,4 +247,5 @@ class AddPost : AppCompatActivity() {
             }
         })
     }
+
 }

@@ -50,6 +50,15 @@ class UserEdit : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_user_edit -> true
+                R.id.navigation_user_edit -> {
+                    // This is the current activity, no need to do anything
+                    true
+                }
+                R.id.navigation_logout -> {
+                    clearToken()
+                    navigateToLogin()
+                    true
+                }
                 else -> false
             }
         }
@@ -100,6 +109,14 @@ class UserEdit : AppCompatActivity() {
                 Toast.makeText(this@UserEdit, "Network error: ${t.localizedMessage}", Toast.LENGTH_LONG).show()
             }
         })
+    private fun clearToken() {
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        sharedPreferences.edit().remove("token").apply()
+    }
+    private fun navigateToLogin() {
+        val intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
     }
 }
 

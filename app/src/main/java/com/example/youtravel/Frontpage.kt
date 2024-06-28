@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 class Frontpage : AppCompatActivity() {
 
     private lateinit var getStarted: Button
+    private lateinit var login: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class Frontpage : AppCompatActivity() {
 
 
         getStarted = findViewById(R.id.getStartedButton)
+        login = findViewById(R.id.loginButton)
 
         if (isTokenPresent()){
             navigateToMainActivity()
@@ -34,15 +36,22 @@ class Frontpage : AppCompatActivity() {
         getStarted.setOnClickListener {
             navigateToRegister()
         }
+        login.setOnClickListener {
+            navigateToLogin()
+        }
     }
 
     private fun navigateToRegister(){
         //val intent = Intent(this, Intro2::class.java)
-        val intent = Intent(this, Register::class.java)
+        val intent = Intent(this, IntroMain::class.java)
         startActivity(intent)
         finish()
     }
-
+    private fun navigateToLogin(){
+        val intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
+    }
 
     private fun navigateToMainActivity(){
         val intent = Intent(this, MainActivity::class.java)

@@ -38,4 +38,9 @@
     <string name="changePassword">Nova palavra-passe</string>
     <string name="changeUsername">Novo nome de utilizador</string>
     <string name="changeName">Novo nome</string>
+    <string name="confirmEdit">Confirmar Edição</string>
+    <string name="pic3">Conecte-se com a natureza. Siga amigos e viajantes com interesses semelhantes para ver suas últimas jornadas.</string>
+    <string name="pic2">Capture seus momentos e compartilhe-os com amigos. Deixe suas fotos contar sua história.</string>
+    <string name="pic1">Explore novos lugares, experiências e aventuras. Descubra o mundo através dos olhos de seus amigos e outros viajantes.</string>
+    <string name="pic4">Inspire-se na comunidade, encontre novas ideias para sua próxima viagem às montanhas e descubra experiências bem avaliadas.</string>
 </resources>
