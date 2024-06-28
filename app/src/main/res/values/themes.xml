@@ -4,6 +4,6 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
-
+    <style name="Theme.IntroSlider" parent="Theme.MaterialComponents.Light.NoActionBar" />
     <style name="Theme.YouTravel" parent="Base.Theme.YouTravel" />
 </resources>

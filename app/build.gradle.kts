@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    implementation("com.squareup.picasso:picasso:2.71828") // INTRO SLIDERS
     // https://mvnrepository.com/artifact/com.theartofdev.edmodo/android-image-cropper
     //implementation("com.theartofdev.edmodo:android-image-cropper:2.8.0") // NAO FUNCIONA
     implementation("com.github.yalantis:ucrop:2.2.6")

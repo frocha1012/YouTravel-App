@@ -9,6 +9,7 @@
     android:background="@color/main15"
     tools:context=".AddPost">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -66,7 +67,7 @@
         android:id="@+id/title_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Inserir Titulo"
+        android:hint="@string/insertTitle"
         android:background="@drawable/edit_text_background"
         android:fontFamily="@font/poppins_medium"
         android:inputType="text"
@@ -83,7 +84,7 @@
         android:id="@+id/description_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Inserir Descrição"
+        android:hint="@string/insertDescription"
         app:layout_constraintTop_toBottomOf="@id/title_edit_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,7 +106,7 @@
             android:id="@+id/places_autocomplete_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Add a location" />
+            android:hint="@string/addLocation" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,12 +121,18 @@
 
     <Spinner
         android:id="@+id/category_spinner"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/rating_bar"
+        android:background="@drawable/edit_text_background"
+        android:padding="16dp"
+        app:backgroundTint="@color/main100"
+        app:layout_constraintTop_toBottomOf="@id/rating_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/main50"/>
 
     <Button
         android:id="@+id/publish_button"
@@ -134,7 +141,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Publicar"
+        android:text="@string/publish"
         android:fontFamily="@font/poppins_medium"
         android:textColor="#FFFFFF"
         android:padding="16dp"
