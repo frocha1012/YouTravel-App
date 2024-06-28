@@ -25,10 +25,24 @@ class UserEdit : AppCompatActivity() {
                     // This is the current activity, no need to do anything
                     true
                 }
+                R.id.navigation_logout -> {
+                    clearToken()
+                    navigateToLogin()
+                    true
+                }
                 else -> false
             }
         }
         // Set the current item without animation to avoid reload
         bottomNavigationView.selectedItemId = R.id.navigation_user_edit
+    }
+    private fun clearToken() {
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        sharedPreferences.edit().remove("token").apply()
+    }
+    private fun navigateToLogin() {
+        val intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
     }
 }

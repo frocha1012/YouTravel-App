@@ -29,6 +29,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, UserEdit::class.java))
                     true
                 }
+                R.id.navigation_logout -> {
+                    clearToken()
+                    navigateToLogin()
+                    true
+                }
                 else -> false
             }
         }
@@ -42,5 +47,14 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fragment_container, Travels())
                 .commit()
         }
+    }
+    private fun clearToken() {
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        sharedPreferences.edit().remove("token").apply()
+    }
+    private fun navigateToLogin() {
+        val intent = Intent(this, Login::class.java)
+        startActivity(intent)
+        finish()
     }
 }
