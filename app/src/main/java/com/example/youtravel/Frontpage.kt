@@ -19,7 +19,6 @@ class Frontpage : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_frontpage)
 
-
         getStarted = findViewById(R.id.getStartedButton)
         login = findViewById(R.id.loginButton)
 
@@ -34,19 +33,30 @@ class Frontpage : AppCompatActivity() {
         }
 
         getStarted.setOnClickListener {
-            navigateToRegister()
+            navigateToNext()
         }
         login.setOnClickListener {
             navigateToLogin()
         }
     }
 
+    private fun navigateToNext(){
+        val sharedPreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        if (sharedPreferences.getBoolean("IntroViewed", false)) {
+            navigateToRegister()
+        } else {
+            val intent = Intent(this, IntroMain::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
     private fun navigateToRegister(){
-        //val intent = Intent(this, Intro2::class.java)
-        val intent = Intent(this, IntroMain::class.java)
+        val intent = Intent(this, Register::class.java)
         startActivity(intent)
         finish()
     }
+
     private fun navigateToLogin(){
         val intent = Intent(this, Login::class.java)
         startActivity(intent)
@@ -63,5 +73,13 @@ class Frontpage : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
         val token = sharedPreferences.getString("token", null)
         return token != null
+    }
+
+    fun setIntroViewed() {
+        val sharedPreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        with (sharedPreferences.edit()) {
+            putBoolean("IntroViewed", true)
+            apply()
+        }
     }
 }
