@@ -1,6 +1,6 @@
 package com.example.youtravel
 
-
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
@@ -15,9 +15,7 @@ import com.google.android.material.button.MaterialButton
 
 class IntroMain : AppCompatActivity() {
 
-
     private lateinit var indicatorsContainer: LinearLayout
-
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
             IntroSlider(
@@ -42,58 +40,66 @@ class IntroMain : AppCompatActivity() {
             )
         )
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro_main)
 
         val skipIntroText = findViewById<TextView>(R.id.textSkipIntro)
-
-        // Set a click listener on the TextView
         skipIntroText.setOnClickListener {
-            // Start an Intent to navigate to the main activity
-            val intent = Intent(this, Register::class.java)
-            startActivity(intent)
-            finish() // Optionally finish the current activity if it should not be in the back stack
+            setIntroViewed()
+            navigateToRegister()
         }
 
+        setupViewPagerAndIndicators()
+    }
+
+    private fun setupViewPagerAndIndicators() {
         val introSliderViewPager = findViewById<ViewPager2>(R.id.introSliderViewPager)
         indicatorsContainer = findViewById(R.id.indicatorsContainer)
         introSliderViewPager.adapter = introSliderAdapter
         setupIndicators()
         setCurrentIndicators(0)
-        introSliderViewPager.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
 
+        introSliderViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setCurrentIndicators(position)
             }
         })
 
-        val buttonNext = findViewById<MaterialButton>(R.id.buttonNext)
-        buttonNext.setOnClickListener {
+        findViewById<MaterialButton>(R.id.buttonNext).setOnClickListener {
             if (introSliderViewPager.currentItem + 1 < introSliderAdapter.itemCount) {
                 introSliderViewPager.currentItem += 1
+            } else {
+                setIntroViewed()
+                navigateToRegister()
             }
         }
     }
 
+    private fun setIntroViewed() {
+        val sharedPreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putBoolean("IntroViewed", true)
+            apply()
+        }
+    }
+
+    private fun navigateToRegister() {
+        startActivity(Intent(this, Register::class.java))
+        finish()
+    }
+
     private fun setupIndicators() {
         val indicators = arrayOfNulls<ImageView>(introSliderAdapter.itemCount)
-        val layoutParams: LinearLayout.LayoutParams =
-            LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         layoutParams.setMargins(8, 0, 8, 0)
 
         for (i in indicators.indices) {
-            indicators[i] = ImageView(applicationContext)
-            indicators[i].apply {
-                this?.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        applicationContext,
-                        R.drawable.indicator_inactive
-                    )
-                )
-                this?.layoutParams = layoutParams
+            indicators[i] = ImageView(applicationContext).apply {
+                setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.indicator_inactive))
+                this.layoutParams = layoutParams
             }
             indicatorsContainer.addView(indicators[i])
         }
@@ -104,13 +110,9 @@ class IntroMain : AppCompatActivity() {
         for (i in 0 until childCount) {
             val imageView = indicatorsContainer[i] as ImageView
             if (i == index) {
-                imageView.setImageDrawable(
-                    ContextCompat.getDrawable(applicationContext, R.drawable.indicator_active)
-                )
+                imageView.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.indicator_active))
             } else {
-                imageView.setImageDrawable(
-                    ContextCompat.getDrawable(applicationContext, R.drawable.indicator_inactive)
-                )
+                imageView.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.indicator_inactive))
             }
         }
     }
