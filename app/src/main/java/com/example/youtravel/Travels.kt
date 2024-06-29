@@ -32,17 +32,10 @@ class Travels : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val swipeRefreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefreshLayout)
         recyclerView = view.findViewById(R.id.rvTravels)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
-        adapter = TravelAdapter(listOf())
+        adapter = TravelAdapter(emptyList())  // Initialize with an empty list
         recyclerView.adapter = adapter
-
-        swipeRefreshLayout.setOnRefreshListener {
-            swipeRefreshLayout.isRefreshing = false
-        }
-
         fetchTravels()
     }
 
@@ -51,13 +44,20 @@ class Travels : Fragment() {
         RetrofitClient.instance.getTravelsByUserId(userId).enqueue(object : Callback<List<Travel>> {
             override fun onResponse(call: Call<List<Travel>>, response: Response<List<Travel>>) {
                 if (response.isSuccessful) {
-                    travelsList = response.body()!!
-                    adapter = TravelAdapter(travelsList)
-                    recyclerView.adapter = adapter
+                    val body = response.body()
+                    if (body != null) {
+                        travelsList = body.reversed()
+                        adapter = TravelAdapter(travelsList)
+                        recyclerView.adapter = adapter
+                    } else {
+                        Log.e("FetchTravels", "Received empty travel list")
+                        // Handle empty or null body appropriately, maybe show a placeholder or message
+                    }
                 } else {
-                    Log.e("FetchTravels", "Failed to fetch travels")
+                    Log.e("FetchTravels", "Failed to fetch travels: ${response.code()}")
                 }
             }
+
 
             override fun onFailure(call: Call<List<Travel>>, t: Throwable) {
                 Log.e("FetchTravels", "Error fetching travels", t)
