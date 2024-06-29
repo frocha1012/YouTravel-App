@@ -32,10 +32,15 @@ class Travels : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val swipeRefreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefreshLayout)
         recyclerView = view.findViewById(R.id.rvTravels)
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = TravelAdapter(emptyList())  // Initialize with an empty list
         recyclerView.adapter = adapter
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = false
+            fetchTravels()
+        }
         fetchTravels()
     }
 
