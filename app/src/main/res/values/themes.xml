@@ -1,9 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.YouTravel" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+    <style name="YouTravelLight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorPrimary">@color/buttonColorPrimary</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/buttonTextPrimary</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <!-- Ensure navigation bar, if used, and other components are themed appropriately -->
     </style>
-    <style name="Theme.IntroSlider" parent="Theme.MaterialComponents.Light.NoActionBar" />
-    <style name="Theme.YouTravel" parent="Base.Theme.YouTravel" />
 </resources>

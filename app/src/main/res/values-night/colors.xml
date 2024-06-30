@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-    <color name="background">#FFFFFF</color>
-    <color name="buttonTextPrimary">#FFFFFF</color>
-    <color name="buttonColorPrimary">#BEACA2</color>
-    <color name="textColorPrimary">#BEACA2</color>
-    <color name="textColorWhite">#FFFFFF</color>
-    <color name="textColorBlack">#000000</color>
-    <color name="textColorIntroTitle">#BEACA2</color>
-
+    <color name="background">#000000</color>
+    <color name="buttonColorPrimary">#FFFFFF</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="buttonTextPrimary">#000000</color>
+    <color name="textColorWhite">#000000</color>
+    <color name="textColorBlack">#FFFFFF</color>
+    <color name="textColorIntroTitle">#505050</color>
 
 
     <color name="main0">#BEACA2</color>
@@ -22,7 +20,7 @@
     <color name="main80">#80BEACA2</color>
     <color name="main90">#90BEACA2</color>
     <color name="main100">#BEACA2</color>
-    
+
     <color name="main">#FBFBFA</color>
 
 
@@ -85,4 +83,5 @@
     <color name="caramel">#C68E17</color>
     <color name="midnight_blue">#191970</color>
     <color name="emerald_green">#50C878</color>
+
 </resources>

@@ -22,7 +22,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.YouTravel"
+        android:theme="@style/YouTravelLight"
         tools:targetApi="31">
         <activity
             android:name=".IntroMain"
@@ -44,7 +44,7 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Register"
+            android:name=".Frontpage"
             android:exported="false" />
         <activity
             android:name=".Loading"
@@ -56,7 +56,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Frontpage"
+            android:name=".Register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

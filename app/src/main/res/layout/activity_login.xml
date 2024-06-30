@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main15"
+    android:background="@color/background"
     tools:context=".Login">
 
     <ImageButton
@@ -21,7 +21,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:scaleType="fitXY"
-        app:tint="@color/main100" />
+        app:tint="@color/buttonColorPrimary" />
 
     <TextView
         android:id="@+id/textViewWelcome"
@@ -31,7 +31,7 @@
         android:layout_marginTop="120dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/loginwelcome"
-        android:textColor="@color/black"
+        android:textColor="@color/textColorBlack"
         android:textSize="32sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
         android:layout_marginTop="170dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/loginsignin"
-        android:textColor="@color/main100"
+        android:textColor="@color/textColorIntroTitle"
         android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +64,11 @@
         android:hint="@string/typeEmail"
         android:inputType="textEmailAddress"
         android:padding="16dp"
-        android:textColorHint="@color/main50"
+        android:textColorHint="@color/buttonColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:backgroundTint="@color/main100"/>
+        app:backgroundTint="@color/buttonColorPrimary"/>
 
     <EditText
         android:id="@+id/inputPassword"
@@ -82,11 +82,11 @@
         android:hint="@string/typePassword"
         android:inputType="textPassword"
         android:padding="16dp"
-        android:textColorHint="@color/main50"
+        android:textColorHint="@color/buttonColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail"
-        app:backgroundTint="@color/main100"/>
+        app:backgroundTint="@color/buttonColorPrimary"/>
 
 
         <!-- dadada -->
@@ -99,7 +99,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/forgetPassword"
-        android:textColor="@color/main100"
+        android:textColor="@color/buttonColorPrimary"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,49 +115,13 @@
         android:padding="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/login"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@color/main100"
+        android:textColor="@color/buttonTextPrimary"
+        app:backgroundTint="@color/buttonColorPrimary"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassword"
-        app:strokeColor="@color/main100"
-        app:strokeWidth="1dp" />
-
-    <Button
-        android:id="@+id/button2Custom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="5dp"
-        app:icon="@drawable/apple_logo"
-        app:iconGravity="textTop"
-        android:textColor="@color/main100"
-        app:backgroundTint="@color/main100"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3Custom"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPassword"
-        app:strokeColor="@color/main"
-        app:strokeWidth="1dp" />
-
-    <Button
-        android:id="@+id/button3Custom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="5dp"
-        app:icon="@drawable/google_logo"
-        app:iconGravity="textTop"
-        android:textColor="@color/main100"
-        app:backgroundTint="@color/main100"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2Custom"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPassword"
-        app:strokeColor="@color/main"
+        app:strokeColor="@color/buttonColorPrimary"
         app:strokeWidth="1dp" />
 
 
