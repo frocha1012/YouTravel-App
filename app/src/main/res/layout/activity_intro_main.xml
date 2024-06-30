@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main15"
+    android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/skipIntro"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/textColorIntroTitle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,8 @@
         android:text="@string/next"
         android:textStyle="bold"
         android:minWidth="110dp"
-        android:backgroundTint="@color/main100"
+        android:textColor="@color/buttonTextPrimary"
+        android:backgroundTint="@color/buttonColorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/textSkipIntro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
