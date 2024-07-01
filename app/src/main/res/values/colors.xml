@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <color name="background">#FFFFFF</color>
     <color name="buttonTextPrimary">#FFFFFF</color>
     <color name="buttonColorPrimary">#BEACA2</color>
@@ -9,7 +8,7 @@
     <color name="textColorWhite">#FFFFFF</color>
     <color name="textColorBlack">#000000</color>
     <color name="textColorIntroTitle">#BEACA2</color>
-
+    <color name="MainFade">#30BEACA2</color>
 
 
     <color name="main0">#BEACA2</color>
