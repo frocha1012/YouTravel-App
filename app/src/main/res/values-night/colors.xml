@@ -2,12 +2,13 @@
 <resources>
 
     <color name="background">#000000</color>
+    <color name="buttonTextPrimary">#000000</color>
     <color name="buttonColorPrimary">#FFFFFF</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="buttonTextPrimary">#000000</color>
     <color name="textColorWhite">#000000</color>
     <color name="textColorBlack">#FFFFFF</color>
     <color name="textColorIntroTitle">#505050</color>
+    <color name="MainFade">#30505050</color>
 
 
     <color name="main0">#BEACA2</color>
