@@ -27,13 +27,9 @@ class Preview : AppCompatActivity() {
         }
 
         // Set up the Back button to navigate back to the Camera activity
-        findViewById<Button>(R.id.button_back).setOnClickListener {
-            // Option 1: Explicitly start the Camera activity (if it should restart)
-            val intent = Intent(this, Camera::class.java)
-            startActivity(intent)
-
-            // Option 2: Simply finish the current activity to go back to the previous one
-            // finish()
+        findViewById<ImageView>(R.id.buttonBack).setOnClickListener{
+            startActivity(Intent(this, Camera::class.java))
+            finish()
         }
     }
 
