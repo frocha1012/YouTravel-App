@@ -54,6 +54,10 @@ class AddPost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_post)
+        findViewById<ImageView>(R.id.buttonBack).setOnClickListener{
+            startActivity(Intent(this, Camera::class.java))
+            finish()
+        }
 
         categorySpinner = findViewById(R.id.category_spinner)
         loadCategories()

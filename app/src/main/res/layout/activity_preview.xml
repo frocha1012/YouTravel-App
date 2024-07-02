@@ -49,37 +49,18 @@
         android:paddingBottom="48dp"/>
 
     <Button
-        android:id="@+id/button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/buttonTextPrimary"
-        android:padding="16dp"
-        app:backgroundTint="@color/buttonColorPrimary"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/button_next"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="30dp"/>
-
-    <Button
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:layout_marginBottom="30dp"
         android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/buttonTextPrimary"
         android:padding="16dp"
+        android:text="Confirm"
+        android:textColor="@color/buttonTextPrimary"
         app:backgroundTint="@color/buttonColorPrimary"
         app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/button_back"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="30dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
