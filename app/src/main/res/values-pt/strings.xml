@@ -15,6 +15,8 @@
     <string name="description_plane">Saiba mais sobre as nossas opções de voos e explore novos destinos.</string>
     <string name="description_camera">Descubra oportunidades incríveis de fotografias e capture momentos inesquecíveis.</string>
     <string name="description_group">Conecte-se com outros viajantes e crie memórias inesquecíveis juntos.</string>
+    <string name="confirmPassword">Confirma a password</string>
+    <string name="changePicture">Mudar Foto</string>
     <string name="name">Nome</string>
     <string name="username">Nome de Utilizador</string>
     <string name="password">Palavra-passe</string>

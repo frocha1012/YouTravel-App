@@ -46,7 +46,7 @@ class Travels : Fragment() {
 
     private fun fetchTravels() {
         val userId = Jwt().getUserID(requireContext())
-        RetrofitClient.instance.getTravelsByUserId(userId).enqueue(object : Callback<List<Travel>> {
+        RetrofitClient.travelService.getTravelsByUserId(userId).enqueue(object : Callback<List<Travel>> {
             override fun onResponse(call: Call<List<Travel>>, response: Response<List<Travel>>) {
                 if (response.isSuccessful) {
                     val body = response.body()
@@ -56,7 +56,6 @@ class Travels : Fragment() {
                         recyclerView.adapter = adapter
                     } else {
                         Log.e("FetchTravels", "Received empty travel list")
-                        // Handle empty or null body appropriately, maybe show a placeholder or message
                     }
                 } else {
                     Log.e("FetchTravels", "Failed to fetch travels: ${response.code()}")

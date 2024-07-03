@@ -36,10 +36,11 @@ class UserEdit : AppCompatActivity() {
 
         setupBottomNavigationView()
         loadUserData()
-
+/*
         updateButton.setOnClickListener {
             updateUserDetails()
         }
+ */
     }
 
     private fun setupBottomNavigationView() {
@@ -72,7 +73,7 @@ class UserEdit : AppCompatActivity() {
 
     private fun loadUserData() {
         val userId = Jwt().getUserID(this)
-        RetrofitClient.instance.getUserDetails(userId).enqueue(object : Callback<UserDetails> {
+        RetrofitClient.userService.getUserDetails(userId).enqueue(object : Callback<UserDetails> {
             override fun onResponse(call: Call<UserDetails>, response: Response<UserDetails>) {
                 if (response.isSuccessful) {
                     response.body()?.let { userDetails ->
@@ -90,44 +91,45 @@ class UserEdit : AppCompatActivity() {
             }
         })
     }
+    /*
+private fun updateUserDetails() {
+    val userId = Jwt().getUserID(this)
+    val userInfo = UserDetailsInfo(
+        nome = nomeEditText.text.toString(),
+        username = usernameEditText.text.toString(),
+    )
 
-    private fun updateUserDetails() {
-        val userId = Jwt().getUserID(this)
-        val userInfo = UserDetailsInfo(
-            nome = nomeEditText.text.toString(),
-            username = usernameEditText.text.toString()
-        )
-
-        RetrofitClient.instance.updateUser(userId.toString(), userInfo)
-            .enqueue(object : Callback<UserDetailsInfo> {
-                override fun onResponse(
-                    call: Call<UserDetailsInfo>,
-                    response: Response<UserDetailsInfo>
-                ) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(
-                            this@UserEdit,
-                            "Details updated successfully!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Toast.makeText(
-                            this@UserEdit,
-                            "Failed to update details: ${response.errorBody()?.string()}",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<UserDetailsInfo>, t: Throwable) {
+    RetrofitClient.userService.updateUser(userId.toString(), userInfo)
+        .enqueue(object : Callback<UserDetailsInfo> {
+            override fun onResponse(
+                call: Call<UserDetailsInfo>,
+                response: Response<UserDetailsInfo>
+            ) {
+                if (response.isSuccessful) {
                     Toast.makeText(
                         this@UserEdit,
-                        "Network error: ${t.localizedMessage}",
+                        "Details updated successfully!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        this@UserEdit,
+                        "Failed to update details: ${response.errorBody()?.string()}",
                         Toast.LENGTH_LONG
                     ).show()
                 }
-            })
-    }
+            }
+
+            override fun onFailure(call: Call<UserDetailsInfo>, t: Throwable) {
+                Toast.makeText(
+                    this@UserEdit,
+                    "Network error: ${t.localizedMessage}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        })
+}
+*/
     private fun clearToken() {
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
         sharedPreferences.edit().remove("token").apply()

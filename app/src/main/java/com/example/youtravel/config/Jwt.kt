@@ -10,7 +10,6 @@ class Jwt {
     fun getUserID(context: Context): Int {
         val token = getToken(context)
         val userIdString = token?.let { getUserIdFromToken(it) }
-        // Convert the string to an integer, returning 0 or a default value in case of failure
         return userIdString?.toIntOrNull() ?: throw IllegalArgumentException("User ID is invalid or not found.")
     }
 

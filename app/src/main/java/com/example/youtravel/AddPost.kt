@@ -31,6 +31,14 @@ import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import com.google.android.gms.common.api.Status
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.widget.Autocomplete
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.libraries.places.api.net.PlacesClient
+import java.time.LocalDate
 
 class AddPost : AppCompatActivity() {
 
@@ -102,7 +110,7 @@ class AddPost : AppCompatActivity() {
         val requestBody = pngFile.asRequestBody("image/png".toMediaTypeOrNull())
         val body = MultipartBody.Part.createFormData("fileUpload", pngFile.name, requestBody)
 
-        RetrofitClient.instance.uploadImage(body).enqueue(object : Callback<ResponseBody> {
+        RetrofitClient.imageService.uploadImage(body).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     val imageUrl = response.body()?.string()
@@ -150,7 +158,7 @@ class AddPost : AppCompatActivity() {
             photo = fileName
         )
 
-        RetrofitClient.instance.createTravel(travelRequest).enqueue(object : Callback<TravelResponse> {
+        RetrofitClient.travelService.createTravel(travelRequest).enqueue(object : Callback<TravelResponse> {
             override fun onResponse(call: Call<TravelResponse>, response: Response<TravelResponse>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@AddPost, "Travel created successfully!", Toast.LENGTH_SHORT).show()
@@ -166,10 +174,27 @@ class AddPost : AppCompatActivity() {
                 Toast.makeText(this@AddPost, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+
+
+        if (!Places.isInitialized()) {
+            Places.initialize(applicationContext, getString(R.string.google_maps_key))
+        }
+        placesClient = Places.createClient(this)
+
+        val imageUriString: String? = intent.getStringExtra("imageUri")
+        imageUriString?.let {
+            val imageUri: Uri = Uri.parse(it)
+            imageView.setImageURI(imageUri)
+        } ?: Log.e("AddPost", "Received null imageUri")
+
+        val inputEditText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
+        inputEditText.setOnClickListener {
+            startAutocompleteActivity()
+        }
     }
 
     private fun loadCategories() {
-        RetrofitClient.instance.getCategories().enqueue(object : Callback<List<Category>> {
+        RetrofitClient.travelService.getCategories().enqueue(object : Callback<List<Category>> {
             override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
                 if (response.isSuccessful) {
                     response.body()?.let { categories ->

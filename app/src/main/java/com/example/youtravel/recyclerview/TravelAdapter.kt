@@ -42,7 +42,7 @@ class TravelAdapter(private val travels: List<Travel>) : RecyclerView.Adapter<Tr
     }
 
     private fun loadTravelImage(travelId: String, imageView: ImageView) {
-        RetrofitClient.instance.getTravelImage(travelId).enqueue(object : Callback<ResponseBody> {
+        RetrofitClient.travelService.getTravelImage(travelId).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     response.body()?.let { responseBody ->
