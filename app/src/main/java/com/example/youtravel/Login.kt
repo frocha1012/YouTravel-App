@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.youtravel.model.LoginRequest
 import com.example.youtravel.model.LoginResponse
 import com.example.youtravel.network.RetrofitClient
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,8 +32,8 @@ class Login : AppCompatActivity() {
         val passwordEditText = findViewById<EditText>(R.id.inputPassword)
         val loginButton = findViewById<Button>(R.id.buttonCustom)
 
-        val gotoRegisterButton = findViewById<TextView>(R.id.forgotPassword)
         val backButton = findViewById<ImageButton>(R.id.buttonChevronLeft)
+        val forgotPassword = findViewById<TextView>(R.id.forgotPassword)
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -52,12 +53,13 @@ class Login : AppCompatActivity() {
             }
         }
 
-        gotoRegisterButton.setOnClickListener {
-            navigateToRegister()
-        }
 
         backButton.setOnClickListener {
             navigateToFrontPage()
+        }
+
+        forgotPassword.setOnClickListener {
+            navigateToPasswordReset()
         }
     }
 
@@ -85,11 +87,6 @@ class Login : AppCompatActivity() {
         })
     }
 
-    private fun navigateToRegister() {
-        val intent = Intent(this, Register::class.java)
-        startActivity(intent)
-        finish()
-    }
 
     private fun navigateToHome() {
         val intent = Intent(this, MainActivity::class.java)
@@ -99,6 +96,12 @@ class Login : AppCompatActivity() {
 
     private fun navigateToFrontPage() {
         val intent = Intent(this, Frontpage::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun navigateToPasswordReset() {
+        val intent = Intent(this, ResetPassword::class.java)
         startActivity(intent)
         finish()
     }
