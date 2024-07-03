@@ -56,6 +56,9 @@
     <string name="pic1">Explore new places, experiences, and adventures. Discover the world through the eyes of your friends and fellow travelers.</string>
     <string name="pic4">Connect with nature. Follow friends and like-minded travelers to see their latest journeys.</string>
     <string name="changePicture">Change Photo</string>
+    <string name="forgotPassword">Forgot your password?</string>
+    <string name="howPassword">Let me help you getting it back</string>
+    <string name="enterEmail">Enter your email here</string>
 
     <!-- TODO: FERNANDO-->
 

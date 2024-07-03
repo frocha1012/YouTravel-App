@@ -25,6 +25,9 @@
         android:theme="@style/YouTravelLight"
         tools:targetApi="31">
         <activity
+            android:name=".ResetPassword"
+            android:exported="false" />
+        <activity
             android:name=".IntroMain"
             android:exported="true" />
         <activity
@@ -64,9 +67,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDEqUcmn4p-EH5rvGMC5esDkcPtLW0b0vw" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.youtravel.fileprovider"

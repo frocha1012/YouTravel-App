@@ -1,4 +1,5 @@
 package com.example.youtravel
+
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -41,7 +42,6 @@ import java.time.LocalDate
 
 class AddPost : AppCompatActivity() {
 
-    private lateinit var placesClient: PlacesClient
     private lateinit var titleEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var publishButton: Button
@@ -51,11 +51,10 @@ class AddPost : AppCompatActivity() {
 
     private var categoryList: List<Category> = listOf()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_post)
-        findViewById<ImageView>(R.id.buttonBack).setOnClickListener{
+        findViewById<ImageView>(R.id.buttonBack).setOnClickListener {
             startActivity(Intent(this, Camera::class.java))
             finish()
         }
@@ -63,20 +62,11 @@ class AddPost : AppCompatActivity() {
         categorySpinner = findViewById(R.id.category_spinner)
         loadCategories()
 
-        if (!Places.isInitialized()) {
-            Places.initialize(applicationContext, getString(R.string.google_maps_key))
-        }
-        placesClient = Places.createClient(this)
-        val inputEditText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
-        inputEditText.setOnClickListener {
-            startAutocompleteActivity()
-        }
         titleEditText = findViewById(R.id.title_edit_text)
         descriptionEditText = findViewById(R.id.description_edit_text)
         publishButton = findViewById(R.id.publish_button)
         ratingBar = findViewById(R.id.rating_bar)
         imageView = findViewById(R.id.image_thumbnail)
-
 
         val imageUriString = intent.getStringExtra("imageUri")
         if (imageUriString != null) {
@@ -98,28 +88,6 @@ class AddPost : AppCompatActivity() {
             Log.e("AddPost", "No image URI passed to activity")
         }
     }
-    private fun startAutocompleteActivity() {
-        val fields = listOf(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS)
-        val intent = Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields).build(this)
-        startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == AUTOCOMPLETE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            val place = Autocomplete.getPlaceFromIntent(data)
-            val editText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
-            editText.setText(place.address)
-        } else if (resultCode == AutocompleteActivityMode.PARCELABLE_WRITE_RETURN_VALUE) {
-            val status: Status = Autocomplete.getStatusFromIntent(data!!)
-            Log.e("AddPost", "Error: ${status.statusMessage}")
-        }
-    }
-
-    companion object {
-        private const val AUTOCOMPLETE_REQUEST_CODE = 1
-    }
-
 
     private fun uploadImage(imageUri: Uri, callback: (String?) -> Unit) {
         val filePath = getRealPathFromURI(imageUri)
@@ -161,7 +129,6 @@ class AddPost : AppCompatActivity() {
         })
     }
 
-
     private fun getRealPathFromURI(contentUri: Uri): String? {
         return try {
             val inputStream = contentResolver.openInputStream(contentUri)
@@ -175,13 +142,11 @@ class AddPost : AppCompatActivity() {
         }
     }
 
-
     private fun postTravel(fileName: String) {
         val selectedCategoryId = categoryList[categorySpinner.selectedItemPosition].category_id
         val userId = Jwt().getUserID(this)
 
         Log.d("AddPost", "UserID: $userId")
-
 
         val travelRequest = TravelRequest(
             user_id_admin = userId,
@@ -209,6 +174,7 @@ class AddPost : AppCompatActivity() {
                 Toast.makeText(this@AddPost, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+
 
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, getString(R.string.google_maps_key))
@@ -251,5 +217,4 @@ class AddPost : AppCompatActivity() {
             }
         })
     }
-
 }
