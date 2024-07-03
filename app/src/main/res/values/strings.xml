@@ -47,6 +47,7 @@
     <string name="addLocation">Add a location</string>
     <string name="editProfile">Edit your profile</string>
     <string name="changePassword">New password</string>
+    <string name="confirmPassword">Confirm password</string>
     <string name="changeUsername">New username</string>
     <string name="changeName">New name</string>
     <string name="confirmEdit">Confirm Edit</string>
@@ -54,6 +55,7 @@
     <string name="pic2">Capture your moments and share them with friends. Let your photos tell your story.</string>
     <string name="pic1">Explore new places, experiences, and adventures. Discover the world through the eyes of your friends and fellow travelers.</string>
     <string name="pic4">Connect with nature. Follow friends and like-minded travelers to see their latest journeys.</string>
+    <string name="changePicture">Change Photo</string>
 
     <!-- TODO: FERNANDO-->
 

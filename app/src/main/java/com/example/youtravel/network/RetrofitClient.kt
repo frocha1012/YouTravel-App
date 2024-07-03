@@ -1,6 +1,9 @@
 package com.example.youtravel.network
 
-import com.example.youtravel.api.ApiService
+import com.example.youtravel.api.AuthService
+import com.example.youtravel.api.ImageService
+import com.example.youtravel.api.TravelService
+import com.example.youtravel.api.UserService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,20 +13,35 @@ object RetrofitClient {
 
     private const val BASE_URL = "https://you-travel-api.vercel.app/api/"
 
-    val instance: ApiService by lazy {
-        val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+    private val retrofit: Retrofit by lazy {
+        val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
 
         val client = OkHttpClient.Builder()
             .addInterceptor(logging)
             .build()
 
-        val retrofit = Retrofit.Builder()
+        Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
+    }
 
-        retrofit.create(ApiService::class.java)
+    val authService: AuthService by lazy {
+        retrofit.create(AuthService::class.java)
+    }
+
+    val travelService: TravelService by lazy {
+        retrofit.create(TravelService::class.java)
+    }
+
+    val imageService: ImageService by lazy {
+        retrofit.create(ImageService::class.java)
+    }
+
+    val userService: UserService by lazy {
+        retrofit.create(UserService::class.java)
     }
 }

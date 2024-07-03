@@ -79,6 +79,25 @@
         app:layout_constraintTop_toBottomOf="@id/usernameEditText" />
 
     <EditText
+        android:id="@+id/passwordEditText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/edit_text_background"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="@string/confirmPassword"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColorHint="@color/buttonColorPrimary"
+        app:backgroundTint="@color/buttonColorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/usernameEditText" />
+
+    <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -114,23 +133,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/avatarButton" />
 
-
     <Button
         android:id="@+id/avatarButton"
         style="@style/CustomButtonStyle"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="167dp"
+        android:layout_height="68dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="96dp"
-        android:text="Alterar foto"
+        android:text="@string/changePicture"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Button
         android:id="@+id/confirmEditButton"
         style="@style/CustomButtonStyle"
+        android:layout_marginTop="100dp"
         android:text="@string/confirmEdit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
 

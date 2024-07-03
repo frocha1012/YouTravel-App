@@ -37,6 +37,7 @@ import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.libraries.places.api.net.PlacesClient
+import java.time.LocalDate
 
 class AddPost : AppCompatActivity() {
 
@@ -141,7 +142,7 @@ class AddPost : AppCompatActivity() {
         val requestBody = pngFile.asRequestBody("image/png".toMediaTypeOrNull())
         val body = MultipartBody.Part.createFormData("fileUpload", pngFile.name, requestBody)
 
-        RetrofitClient.instance.uploadImage(body).enqueue(object : Callback<ResponseBody> {
+        RetrofitClient.imageService.uploadImage(body).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     val imageUrl = response.body()?.string()
@@ -192,7 +193,7 @@ class AddPost : AppCompatActivity() {
             photo = fileName
         )
 
-        RetrofitClient.instance.createTravel(travelRequest).enqueue(object : Callback<TravelResponse> {
+        RetrofitClient.travelService.createTravel(travelRequest).enqueue(object : Callback<TravelResponse> {
             override fun onResponse(call: Call<TravelResponse>, response: Response<TravelResponse>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@AddPost, "Travel created successfully!", Toast.LENGTH_SHORT).show()
@@ -209,7 +210,6 @@ class AddPost : AppCompatActivity() {
             }
         })
 
-        // Initialize Places Client if not already done
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, getString(R.string.google_maps_key))
         }
@@ -228,7 +228,7 @@ class AddPost : AppCompatActivity() {
     }
 
     private fun loadCategories() {
-        RetrofitClient.instance.getCategories().enqueue(object : Callback<List<Category>> {
+        RetrofitClient.travelService.getCategories().enqueue(object : Callback<List<Category>> {
             override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
                 if (response.isSuccessful) {
                     response.body()?.let { categories ->
