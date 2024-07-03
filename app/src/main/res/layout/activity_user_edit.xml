@@ -51,8 +51,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,18 +131,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/avatarButton" />
+        app:layout_constraintTop_toBottomOf="@id/imageView3" />
 
-    <Button
+    <ImageButton
         android:id="@+id/avatarButton"
-        style="@style/CustomButtonStyle"
-        android:layout_width="167dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="96dp"
-        android:text="@string/changePicture"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/background"
+        android:contentDescription="@string/changePicture"
+        android:src="@drawable/baseline_add_a_photo_24"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:tint="@color/buttonColorPrimary" />
 
     <Button
         android:id="@+id/confirmEditButton"
