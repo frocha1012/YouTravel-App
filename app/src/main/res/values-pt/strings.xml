@@ -43,4 +43,7 @@
     <string name="pic2">Capture seus momentos e compartilhe-os com amigos. Deixe suas fotos contar sua história.</string>
     <string name="pic1">Explore novos lugares, experiências e aventuras. Descubra o mundo através dos olhos de seus amigos e outros viajantes.</string>
     <string name="pic4">Inspire-se na comunidade, encontre novas ideias para sua próxima viagem às montanhas e descubra experiências bem avaliadas.</string>
+    <string name="forgotPassword">Esqueceste-te da tua password?</string>
+    <string name="howPassword">Deixa-me ajudar a recupera-la</string>
+    <string name="enterEmail">Coloca aqui o email</string>
 </resources>

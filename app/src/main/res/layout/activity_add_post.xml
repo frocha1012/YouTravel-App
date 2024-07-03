@@ -90,32 +90,12 @@
         app:backgroundTint="@color/buttonColorPrimary"
         style="@style/CustomEditTextStyle"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/places_autocomplete_textinputlayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_edit_text">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/places_autocomplete_edittext"
-            android:layout_width="match_parent"
-            android:textColorHint="@color/buttonColorPrimary"
-            app:backgroundTint="@color/buttonColorPrimary"
-            android:layout_height="wrap_content"
-            android:hint="@string/addLocation" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <RatingBar
         android:id="@+id/rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/places_autocomplete_textinputlayout"
+        app:layout_constraintTop_toBottomOf="@id/description_edit_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
