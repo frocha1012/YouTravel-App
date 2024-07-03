@@ -179,7 +179,7 @@ class AddPost : AppCompatActivity() {
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, getString(R.string.google_maps_key))
         }
-        placesClient = Places.createClient(this)
+
 
         val imageUriString: String? = intent.getStringExtra("imageUri")
         imageUriString?.let {
@@ -187,10 +187,7 @@ class AddPost : AppCompatActivity() {
             imageView.setImageURI(imageUri)
         } ?: Log.e("AddPost", "Received null imageUri")
 
-        val inputEditText: TextInputEditText = findViewById(R.id.places_autocomplete_edittext)
-        inputEditText.setOnClickListener {
-            startAutocompleteActivity()
-        }
+
     }
 
     private fun loadCategories() {
