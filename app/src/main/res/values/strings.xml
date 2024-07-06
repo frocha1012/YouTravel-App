@@ -59,6 +59,7 @@
     <string name="forgotPassword">Forgot your password?</string>
     <string name="howPassword">Let me help you getting it back</string>
     <string name="enterEmail">Enter your email here</string>
+    <string name="title_activity_map">Map</string>
 
     <!-- TODO: FERNANDO-->
 
