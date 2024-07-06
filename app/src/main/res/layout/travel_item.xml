@@ -60,4 +60,24 @@
         app:layout_constraintEnd_toEndOf="@+id/imagePhoto"
         app:layout_constraintTop_toBottomOf="@+id/imagePhoto" />
 
+    <Button
+        android:id="@+id/buttonViewTravel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="16dp"
+        android:text="View travel"
+        android:textSize="12dp"
+        android:textColor="@color/buttonTextPrimary"
+        app:backgroundTint="@color/buttonColorPrimary"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/rating_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagePhoto"
+        app:strokeColor="@color/buttonColorPrimary"
+        app:strokeWidth="1dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.youtravel.recyclerview
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,9 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.youtravel.R
+import com.example.youtravel.TravelDetails
 import com.example.youtravel.model.Travel
 import com.example.youtravel.network.RetrofitClient
 import okhttp3.ResponseBody
@@ -25,6 +28,7 @@ class TravelAdapter(private val travels: List<Travel>) : RecyclerView.Adapter<Tr
         val textViewDescription: TextView = view.findViewById(R.id.description_text)
         val imageViewPhoto: ImageView = view.findViewById(R.id.imagePhoto)
         val textViewRating: RatingBar = view.findViewById(R.id.rating_bar)
+        val viewButton: View = view.findViewById(R.id.buttonViewTravel)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TravelViewHolder {
@@ -39,6 +43,14 @@ class TravelAdapter(private val travels: List<Travel>) : RecyclerView.Adapter<Tr
         holder.textViewRating.rating = travel.rating
 
         loadTravelImage(travel.id.toString(), holder.imageViewPhoto)
+
+        holder.viewButton.setOnClickListener {
+            val context = holder.viewButton.context
+            val intent = Intent(context, TravelDetails::class.java).apply {
+                putExtra("travelTitle", travel.title)  // Pass the travel title to the TravelDetails activity
+            }
+            context.startActivity(intent)
+        }
     }
 
     private fun loadTravelImage(travelId: String, imageView: ImageView) {
